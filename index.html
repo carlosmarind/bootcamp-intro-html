@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera web</title>
+    <title>HTML paso a paso</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
+</head>
 
 <body>
     <!-- 
@@ -15,45 +16,211 @@
     <header id="inicio">
         <h1>HTML paso a paso</h1>
         <p>
-            Vamos a aprender sobre etiquetas HTML y como se ocupan junto a sus atributos
+            Vamos a aprender sobre etiquetas HTML y cómo se usan junto a sus atributos.
         </p>
 
         <nav>
-            <h2>Contenido</h2>
+            <p><strong>Contenido</strong></p>
             <ol>
-                <li><a href="#que-es-html">Que es HTML</a></li>
-                <li><a href="#imagenes">Imagenes</a></li>
+                <li><a href="#que-es-html">Qué es HTML</a></li>
+                <li><a href="#estructura">Estructura de una página HTML</a></li>
+                <li><a href="#textos">Textos y títulos</a></li>
+                <li><a href="#atributos">Atributos HTML</a></li>
+                <li><a href="#enlaces">Enlaces</a></li>
+                <li><a href="#imagenes">Imágenes</a></li>
                 <li><a href="#listas">Listas</a></li>
-                <li> <a href="https://www.google.com" target="_blank">Enlace a google</a></li>
+                <li><a href="#tablas">Tablas</a></li>
+                <li><a href="#formulario">Formularios</a></li>
+                <li><a href="#semantica">HTML semántico</a></li>
+                <li>
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank"
+                        rel="noopener noreferrer">Documentación de HTML en MDN</a>
+                </li>
             </ol>
         </nav>
 
     </header>
     <main>
         <section id="que-es-html">
-            <h2>Que es html</h2>
+            <h2>1. Qué es HTML</h2>
             <p>
-                Html es un lenguaje de marcado que nos permite escribir un texto el cual el navegador intepreta y nos
-                muestra en pantalla
+                HTML es un lenguaje de marcado que nos permite escribir contenido que el navegador interpreta y muestra
+                en pantalla.
             </p>
             <p>
-                Html no se usa para decorar la informacion, solo para estructurarla, y tampoco es programable, eso lo
-                hacemos con javascript
-                Este lenguaje lo usaremos para organizar textos, mostrar enlaces, mostrar imagenes, tablas, formularios,
+                HTML no se usa para decorar la información, sino para estructurarla. Tampoco es un lenguaje de
+                programación; para agregar comportamiento podemos usar JavaScript.
+                Este lenguaje lo usaremos para organizar textos, mostrar enlaces, imágenes, tablas, formularios,
                 etc.
             </p>
             <article>
                 <h3>Idea importante</h3>
                 <p>
-                    Una etiqueta describe una parte del contenido. por ejemplo
-                    <code>&lt;p&gt;</code> representa un parrafo y <code>&lt;h1&gt;</code> representa el titulo
-                    principal de la pagina
+                    Una etiqueta describe una parte del contenido. Por ejemplo,
+                    <code>&lt;p&gt;</code> representa un párrafo y <code>&lt;h1&gt;</code> representa el título
+                    principal de la página.
                 </p>
             </article>
         </section>
 
+        <section id="estructura" class="paso">
+            <h2>2. Estructura de una página HTML</h2>
+            <p>Una página HTML normalmente tiene estas partes:</p>
+
+            <dl>
+                <dt><code>&lt;!doctype html&gt;</code></dt>
+                <dd>Le indica al navegador que el documento usa HTML moderno, si no lo colocamos, el navegador entra en
+                    modo de compatibilidad e interpretará nuestro HTML como si fuera una versión antigua.</dd>
+
+                <dt><code>&lt;html&gt;</code></dt>
+                <dd>Contiene toda la página. Aquí usamos <code>lang="es"</code> para indicar que usaremos el idioma
+                    español.</dd>
+
+                <dt><code>&lt;head&gt;</code></dt>
+                <dd>Contiene información para el navegador, como el título de la pestaña por ejemplo.</dd>
+
+                <dt><code>&lt;body&gt;</code></dt>
+                <dd>Contiene lo que las personas ven dentro de la página.</dd>
+            </dl>
+
+            <h3>Ejemplo escrito como texto</h3>
+            <pre>
+                    <code>
+                        &lt;!doctype html&gt;
+                            &lt;html lang="es"&gt;
+                            &lt;head&gt;
+                                &lt;meta charset="utf-8"&gt;
+                                &lt;title&gt;Mi primera página&lt;/title&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                                &lt;h1&gt;Hola mundo&lt;/h1&gt;
+                                &lt;p&gt;Esta es mi primera página.&lt;/p&gt;
+                            &lt;/body&gt;
+                            &lt;/html&gt;
+                    </code>
+                </pre>
+        </section>
+
+        <section id="textos">
+
+            <h2>3. Textos y títulos</h2>
+            <p>
+                Los títulos ayudan a ordenar la información. <code>&lt;h1&gt;</code> es el más importante.
+                Después vienen <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code> y así hasta <code>&lt;h6&gt;</code>.
+            </p>
+
+            <h3>Ejemplo de jerarquía de títulos</h3>
+            <ul>
+                <li><code>&lt;h1&gt;</code>: título principal de la página.</li>
+                <li><code>&lt;h2&gt;</code>: título de una sección.</li>
+                <li><code>&lt;h3&gt;</code>: título de una subsección.</li>
+            </ul>
+
+            <p>La etiqueta <code>&lt;p&gt;</code> crea un párrafo.</p>
+            <p>
+                Podemos marcar una palabra como <strong>importante</strong> con
+                <code>&lt;strong&gt;</code> o dar <em>énfasis</em> con <code>&lt;em&gt;</code>.
+            </p>
+            <p>
+                La etiqueta <code>&lt;br&gt;</code> hace un salto de línea.<br>
+                Esta línea aparece debajo de la anterior.
+            </p>
+
+            <blockquote cite="https://developer.mozilla.org/">
+                <p>HTML da estructura al contenido que muestra el navegador.</p>
+            </blockquote>
+        </section>
+
+        <section id="atributos">
+            <h2>4. Atributos HTML</h2>
+            <p>
+                Un atributo agrega información o modifica el comportamiento de una etiqueta. Se escribe dentro de la
+                etiqueta de apertura, normalmente con la forma <code>nombre="valor"</code>.
+            </p>
+
+            <p>
+                Por ejemplo, en <code>&lt;p id="presentacion" class="destacado"&gt;</code>,
+                <code>id</code> y <code>class</code> son atributos de la etiqueta <code>&lt;p&gt;</code>.
+            </p>
+
+            <h3>Atributos básicos</h3>
+            <dl>
+                <dt><code>id</code></dt>
+                <dd>
+                    Identifica un elemento de manera única dentro de la página. También permite crear enlaces internos,
+                    como <code>href="#inicio"</code>.
+                </dd>
+
+                <dt><code>class</code></dt>
+                <dd>
+                    Agrupa elementos relacionados. Varios elementos pueden compartir la misma clase y un elemento puede
+                    tener más de una, separadas por espacios.
+                </dd>
+
+                <dt><code>name</code></dt>
+                <dd>
+                    Identifica el dato de un campo cuando se envía un formulario. Se usa en elementos como
+                    <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> y <code>&lt;textarea&gt;</code>.
+                </dd>
+            </dl>
+
+            <h3>Atributos usados en formularios</h3>
+            <ul>
+                <li><code>type</code> define el tipo de un <code>&lt;input&gt;</code>, por ejemplo, <code>text</code>,
+                    <code>email</code>, <code>checkbox</code> o <code>radio</code>.
+                </li>
+                <li><code>value</code> establece el valor de un campo o de una opción.</li>
+                <li><code>placeholder</code> muestra una pista breve dentro de un campo vacío.</li>
+                <li><code>required</code> indica que el campo debe completarse antes de enviar el formulario.</li>
+                <li><code>readonly</code> permite leer el valor, pero impide modificarlo.</li>
+                <li><code>disabled</code> deshabilita un control. Un control está habilitado cuando no tiene
+                    <code>disabled</code>; no existe un atributo HTML llamado <code>enabled</code>.
+                </li>
+                <li><code>checked</code> marca inicialmente un <code>checkbox</code> o un <code>radio</code>.</li>
+                <li><code>selected</code> elige inicialmente una <code>&lt;option&gt;</code> dentro de un
+                    <code>&lt;select&gt;</code>.
+                </li>
+            </ul>
+
+            <p>
+                <code>required</code>, <code>readonly</code>, <code>disabled</code>, <code>checked</code> y
+                <code>selected</code> son atributos booleanos: su presencia activa la característica.
+            </p>
+
+            <h3>Ejemplo</h3>
+            <pre><code>&lt;label for="correo-ejemplo"&gt;Correo:&lt;/label&gt;
+&lt;input id="correo-ejemplo" name="correo" type="email" required&gt;
+
+&lt;select id="curso" name="curso"&gt;
+    &lt;option value="html" selected&gt;HTML&lt;/option&gt;
+    &lt;option value="css" disabled&gt;CSS (próximamente)&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+        </section>
+
+        <section id="enlaces">
+
+            <h2>5. Enlaces</h2>
+            <p>
+                La etiqueta <code>&lt;a&gt;</code> crea enlaces. El atributo más importante es
+                <code>href</code>, porque indica a dónde lleva el enlace.
+            </p>
+
+            <ul>
+                <li><a href="#inicio">Volver al inicio de esta misma página, se usa el id del atributo</a></li>
+                <li>
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank"
+                        rel="noopener noreferrer">Abrir la documentación de HTML en MDN</a>
+                </li>
+                <li><a href="mailto:profesor@uchile.cl">Enviar un correo de ejemplo</a></li>
+            </ul>
+
+            <p>
+                Cuando usamos <code>target="_blank"</code>, el enlace abre en otra pestaña.
+            </p>
+        </section>
+
         <section id="imagenes">
-            <h2>Imagenes</h2>
+            <h2>6. Imágenes</h2>
             <p>
                 La etiqueta <code>&lt;img&gt;</code> muestra una imagen. Normalmente se usa <code>src</code> para
                 indicar la ruta de la imagen
@@ -61,19 +228,19 @@
             </p>
             <figure>
                 <img src="https://placehold.co/600x400/white/F00?text=Imagen+de+ejemplo"
-                    alt="Rectangulo de ejemplo como texto para la imagen" width="320" height="180">
+                    alt="Rectángulo con el texto Imagen de ejemplo" width="320" height="180">
                 <figcaption>
-                    Esta imagen viene desde otra pagina web, si no se carga, se lee el texto alternativo indicado en el
-                    "alt"
+                    Esta imagen viene desde otra página web. Si no se carga, se presenta el texto alternativo indicado
+                    en el atributo <code>alt</code>.
                 </figcaption>
             </figure>
         </section>
 
         <section id="listas">
-            <h2>Listas ordenadas y no ordenadas.</h2>
+            <h2>7. Listas ordenadas y no ordenadas</h2>
             <p>HTML tiene distintos tipos de listas</p>
 
-            <h3> Lista desordenadas</h3>
+            <h3>Lista desordenada</h3>
 
             <ul>
                 <li>Pan</li>
@@ -85,31 +252,32 @@
             <ol>
                 <li>Abrir un fichero HTML</li>
                 <li>Leer una de sus secciones</li>
-                <li>Modificar algun ejemplo</li>
+                <li>Modificar algún ejemplo</li>
                 <li>Guardar y refrescar el navegador</li>
             </ol>
 
-            <h3>Lista de definicion</h3>
+            <h3>Lista de definición</h3>
             <dl>
                 <dt>Etiqueta</dt>
                 <dd>Marca que describe una parte del contenido</dd>
                 <dt>Atributo</dt>
-                <dd>Informacion que se agrega a la etiqueta de forma opcional u obligatoria segun el caso</dd>
+                <dd>Información que se agrega a la etiqueta de forma opcional u obligatoria según el caso</dd>
             </dl>
         </section>
 
         <section id="tablas">
-            <h2>Tablas</h2>
+            <h2>8. Tablas</h2>
             <p>
-                Las tablas sirve para mostrar informacion o datos organizados en filas y columnas, es decir, tabulados.
+                Las tablas sirven para mostrar información o datos organizados en filas y columnas.
             </p>
 
             <table>
+                <caption>Horario de actividades del curso</caption>
                 <thead>
                     <tr>
-                        <th>Hora</th>
-                        <th>Tema</th>
-                        <th>Actividad</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Tema</th>
+                        <th scope="col">Actividad</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -125,34 +293,45 @@
                     </tr>
                     <tr>
                         <td>10:00</td>
-                        <td>imagenes</td>
-                        <td>Usaremos imagenes de placeholder en el sitio</td>
+                        <td>Imágenes</td>
+                        <td>Usaremos imágenes de ejemplo en el sitio</td>
                     </tr>
                     <tr>
                         <td>10:30</td>
                         <td>Tablas</td>
-                        <td>Mostraremos informacion tabulada en nuestra pagina web</td>
+                        <td>Mostraremos información tabulada en nuestra página web</td>
                     </tr>
                     <tr>
                         <td>11:00</td>
-                        <td colspan="2">Este evento esta vacante</td>
+                        <td colspan="2">Este evento está vacante</td>
                     </tr>
                 </tbody>
             </table>
 
         </section>
 
-        <section id="#formulario">
-            <h2>Formularios</h2>
+        <section id="formulario">
+            <h2>9. Formularios</h2>
             <p>
                 Los formularios se usan para pedir datos al usuario. Son de entrada, y se puede hacer varias cosas con
                 ellos, como por ejemplo validarlos.
             </p>
 
-            <form action="#">
+            <h3>Agrupar campos con fieldset</h3>
+            <p>
+                La etiqueta <code>&lt;fieldset&gt;</code> agrupa campos que están relacionados dentro de un formulario.
+                Por ejemplo, permite reunir varios botones de radio que responden a una misma pregunta.
+            </p>
+            <p>
+                Dentro de <code>&lt;fieldset&gt;</code> se usa <code>&lt;legend&gt;</code> para escribir el título o la
+                pregunta del grupo. Esta estructura ayuda a entender el formulario y permite que los lectores de
+                pantalla relacionen los controles correctamente.
+            </p>
+
+            <form action="#formulario">
                 <p>
                     <label for="nombre">Nombre:</label>
-                    <input id="nombre" type="text" placeholder="Aqui tu nombre">
+                    <input id="nombre" name="nombre" type="text" placeholder="Aquí tu nombre">
                 </p>
                 <p>
                     <label for="correo">Correo:</label>
@@ -169,6 +348,19 @@
                     </select>
                 </p>
 
+                <fieldset>
+                    <legend>Modalidad preferida:</legend>
+
+                    <input type="radio" name="modalidad" id="presencial" value="presencial" checked>
+                    <label for="presencial">Presencial</label>
+
+                    <input type="radio" name="modalidad" id="remota" value="remota">
+                    <label for="remota">Remota</label>
+
+                    <input type="radio" name="modalidad" id="hibrida" value="hibrida">
+                    <label for="hibrida">Híbrida</label>
+                </fieldset>
+
                 <p>
                     <label for="comentario">Comentario:</label>
                     <textarea name="comentario" id="comentario" rows="4" cols="40"
@@ -183,8 +375,57 @@
                 <button type="reset">Limpiar</button>
             </form>
 
+            <h3>Atributos del formulario</h3>
+            <ul>
+                <li><code>for</code> conecta un <code>&lt;label&gt;</code> con un campo por su <code>id</code>.</li>
+                <li><code>name</code> da nombre al dato que se enviaría.</li>
+                <li><code>type</code> define el tipo de input.</li>
+                <li><code>placeholder</code> muestra una pista dentro del campo.</li>
+                <li><code>value</code> define un valor inicial o el valor de una opción.</li>
+                <li>Los botones de radio forman un grupo cuando comparten el mismo <code>name</code>.</li>
+                <li><code>checked</code> marca la opción seleccionada inicialmente.</li>
+            </ul>
+
+        </section>
+
+        <section id="semantica">
+
+            <h2>10. HTML semántico</h2>
+            <p>
+                HTML semántico significa elegir etiquetas por su significado, no por cómo se ven.
+                Esto ayuda a lectores de pantalla, buscadores y otras personas que leen el código.
+            </p>
+
+            <article>
+                <h3>Etiquetas semánticas usadas en esta página</h3>
+                <ul>
+                    <li><code>&lt;header&gt;</code>: encabezado de una página o sección.</li>
+                    <li><code>&lt;nav&gt;</code>: navegación o menú de enlaces.</li>
+                    <li><code>&lt;main&gt;</code>: contenido principal.</li>
+                    <li><code>&lt;section&gt;</code>: bloque temático.</li>
+                    <li><code>&lt;article&gt;</code>: contenido que puede entenderse por sí mismo.</li>
+                    <li><code>&lt;aside&gt;</code>: información complementaria.</li>
+                    <li><code>&lt;footer&gt;</code>: cierre de una página o sección.</li>
+                </ul>
+            </article>
+
+            <aside>
+                <h3>Nota para recordar</h3>
+                <p>
+                    Si una etiqueta describe bien el propósito del contenido, probablemente es una buena elección.
+                </p>
+            </aside>
         </section>
     </main>
+
+    <footer>
+        <p>Fin<a href="#inicio">Volver al inicio</a>.</p>
+        <p>
+            Guía base de introducción a HTML con etiquetas y atributos básicos que utilizaremos en el
+            futuro.
+        </p>
+    </footer>
+
 </body>
 
 </html>

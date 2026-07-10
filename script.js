@@ -1,1 +1,1 @@
-console.log('Saludos desde la consola de javacript');
+console.log('Saludos desde la consola de JavaScript');
