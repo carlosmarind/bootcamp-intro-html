@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+<body>
+    <!-- 
+        Este es un comentario
+    -->
+    <header id="inicio">
+        <h1>HTML paso a paso</h1>
+        <p>
+            Vamos a aprender sobre etiquetas HTML y como se ocupan junto a sus atributos
+        </p>
+
+        <nav>
+            <h2>Contenido</h2>
+            <ol>
+                <li><a href="#que-es-html">Que es HTML</a></li>
+                <li><a href="#imagenes">Imagenes</a></li>
+                <li><a href="#listas">Listas</a></li>
+                <li> <a href="https://www.google.com" target="_blank">Enlace a google</a></li>
+            </ol>
+        </nav>
+
+    </header>
+    <main>
+        <section id="que-es-html">
+            <h2>Que es html</h2>
+            <p>
+                Html es un lenguaje de marcado que nos permite escribir un texto el cual el navegador intepreta y nos
+                muestra en pantalla
+            </p>
+            <p>
+                Html no se usa para decorar la informacion, solo para estructurarla, y tampoco es programable, eso lo
+                hacemos con javascript
+                Este lenguaje lo usaremos para organizar textos, mostrar enlaces, mostrar imagenes, tablas, formularios,
+                etc.
+            </p>
+            <article>
+                <h3>Idea importante</h3>
+                <p>
+                    Una etiqueta describe una parte del contenido. por ejemplo
+                    <code>&lt;p&gt;</code> representa un parrafo y <code>&lt;h1&gt;</code> representa el titulo
+                    principal de la pagina
+                </p>
+            </article>
+        </section>
+
+        <section id="imagenes">
+            <h2>Imagenes</h2>
+            <p>
+                La etiqueta <code>&lt;img&gt;</code> muestra una imagen. Normalmente se usa <code>src</code> para
+                indicar la ruta de la imagen
+                y <code>alt</code> para describirla.
+            </p>
+            <figure>
+                <img src="https://placehold.co/600x400/white/F00?text=Imagen+de+ejemplo"
+                    alt="Rectangulo de ejemplo como texto para la imagen" width="320" height="180">
+                <figcaption>
+                    Esta imagen viene desde otra pagina web, si no se carga, se lee el texto alternativo indicado en el
+                    "alt"
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="listas">
+            <h2>Listas ordenadas y no ordenadas.</h2>
+            <p>HTML tiene distintos tipos de listas</p>
+
+            <h3> Lista desordenadas</h3>
+
+            <ul>
+                <li>Pan</li>
+                <li>Carne</li>
+                <li>Verduras</li>
+            </ul>
+
+            <h3>Lista ordenada</h3>
+            <ol>
+                <li>Abrir un fichero HTML</li>
+                <li>Leer una de sus secciones</li>
+                <li>Modificar algun ejemplo</li>
+                <li>Guardar y refrescar el navegador</li>
+            </ol>
+
+            <h3>Lista de definicion</h3>
+            <dl>
+                <dt>Etiqueta</dt>
+                <dd>Marca que describe una parte del contenido</dd>
+                <dt>Atributo</dt>
+                <dd>Informacion que se agrega a la etiqueta de forma opcional u obligatoria segun el caso</dd>
+            </dl>
+        </section>
+
+        <section id="tablas">
+            <h2>Tablas</h2>
+            <p>
+                Las tablas sirve para mostrar informacion o datos organizados en filas y columnas, es decir, tabulados.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Tema</th>
+                        <th>Actividad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00</td>
+                        <td>Estructura HTML</td>
+                        <td>Lean el documento de u-cursos</td>
+                    </tr>
+                    <tr>
+                        <td>09:30</td>
+                        <td>Etiquetas y textos</td>
+                        <td>Crea una etiqueta de parrafo y coloca un texto dentro</td>
+                    </tr>
+                    <tr>
+                        <td>10:00</td>
+                        <td>imagenes</td>
+                        <td>Usaremos imagenes de placeholder en el sitio</td>
+                    </tr>
+                    <tr>
+                        <td>10:30</td>
+                        <td>Tablas</td>
+                        <td>Mostraremos informacion tabulada en nuestra pagina web</td>
+                    </tr>
+                    <tr>
+                        <td>11:00</td>
+                        <td colspan="2">Este evento esta vacante</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+        <section id="#formulario">
+            <h2>Formularios</h2>
+            <p>
+                Los formularios se usan para pedir datos al usuario. Son de entrada, y se puede hacer varias cosas con
+                ellos, como por ejemplo validarlos.
+            </p>
+
+            <form action="#">
+                <p>
+                    <label for="nombre">Nombre:</label>
+                    <input id="nombre" type="text" placeholder="Aqui tu nombre">
+                </p>
+                <p>
+                    <label for="correo">Correo:</label>
+                    <input type="email" name="correo" id="correo">
+                </p>
+
+                <p>
+                    <label for="nivel">Nivel de experiencia:</label>
+                    <select name="nivel" id="nivel">
+                        <option value="">Seleccione...</option>
+                        <option value="sin-experiencia">Sin experiencia</option>
+                        <option value="principiante">Principiante</option>
+                        <option selected value="intermedio">Intermedio</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="comentario">Comentario:</label>
+                    <textarea name="comentario" id="comentario" rows="4" cols="40"
+                        placeholder="Escribe una pregunta sobre html"></textarea>
+                </p>
+
+                <p>
+                    <input type="checkbox" name="acepto" id="acepto" value="si">
+                    <label for="acepto">Quiero aceptar el acuerdo de servicio </label>
+                </p>
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpiar</button>
+            </form>
+
+        </section>
+    </main>
+</body>
+
+</html>
