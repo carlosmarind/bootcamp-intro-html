@@ -1,3 +1,195 @@
+/*
+    Esta hoja de estilos está conectada con index.html mediante:
+    <link rel="stylesheet" href="styles.css">
+*/
 body {
-    background-color: lightgray;
+    background-color: #e8edf2;
+    color: #243447;
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
+
+/*
+    Estos contenedores separan visualmente los contenidos de HTML y CSS.
+    El borde lateral funciona como una marca de color para reconocer cada lenguaje.
+*/
+.bloque-contenido {
+    border-left: 6px solid;
+    border-radius: 4px;
+    margin: 24px 0;
+    padding: 16px;
+}
+
+.bloque-html {
+    background-color: #edf6fb;
+    border-left-color: #2f6f95;
+}
+
+.bloque-css {
+    background-color: #f2f0fa;
+    border-left-color: #5a54a4;
+}
+
+.encabezado-bloque {
+    border: 2px solid;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+}
+
+.encabezado-html {
+    background-color: #d9ebf3;
+    border-color: #2f6f95;
+}
+
+.encabezado-css {
+    background-color: #e2dff2;
+    border-color: #5a54a4;
+}
+
+.titulo-bloque {
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin: 0 0 4px;
+    padding: 8px 12px;
+}
+
+.titulo-html {
+    background-color: #245775;
+}
+
+.titulo-css {
+    background-color: #4d478f;
+}
+
+.descripcion-bloque {
+    margin-bottom: 0;
+}
+
+/*
+    Los ejemplos largos se desplazan dentro de su propio bloque en pantallas pequeñas.
+*/
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/*
+    Las imágenes reducen su tamaño cuando el espacio disponible es menor que su ancho original.
+*/
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+figure {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+textarea {
+    max-width: 100%;
+}
+
+/*
+    Una regla puede modificar más de una propiedad del elemento seleccionado.
+*/
+code {
+    color: #a61b1b;
+    font-size: 16px;
+}
+
+/*
+    Selector de etiqueta: encuentra todos los elementos que tengan esta etiqueta.
+*/
+footer {
+    background-color: #d6e4f0;
+    color: #243447;
+    padding: 16px;
+}
+
+/*
+    Selector por id: #inicio encuentra un único elemento.
+*/
+#inicio {
+    background-color: #cfe8f3;
+    padding: 30px;
+}
+
+/*
+    Selector por clase: .paso encuentra todas las secciones que comparten class="paso".
+*/
+.paso {
+    background-color: white;
+    padding: 16px;
+    margin-left: 20px;
+}
+
+/*
+    Selectores de atributo sobre elementos
+*/
+a[target="_blank"] {
+    color: #156b3a;
+}
+
+input[type="radio"] {
+    accent-color: #243447;
+}
+
+[checked] {
+    margin-left: 40px;
+}
+
+/*
+    Patrones de atributos data-* usados en el laboratorio.
+*/
+[data-estado] {
+    background-color: #fff1b8;
+    padding: 10px;
+}
+
+[data-estado="activo"] {
+    color: #176b36;
+}
+
+[data-tema*="css"] {
+    background-color: #d7efff;
+    padding: 10px;
+}
+
+[data-etapa^="intro"] {
+    color: #6b3fa0;
+    margin-left: 20px;
+}
+
+[data-archivo$=".pdf"] {
+    color: #9a4b00;
+    font-size: 18px;
+}
+
+[data-tecnologias~="css"] {
+    background-color: #e5f6df;
+    margin-left: 40px;
+    padding: 10px;
+}
+
+/*
+    Varios selectores pueden compartir el mismo bloque si los separamos con comas.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #3f3c8f;
+}
+
+/*
+    EJERCICIOS CSS
+    Escribir las reglas debajo de este comentario y probarlas una por una.
