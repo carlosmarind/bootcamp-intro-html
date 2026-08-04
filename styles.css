@@ -191,5 +191,82 @@ h6 {
 }
 
 /*
-    EJERCICIOS CSS
-    Escribir las reglas debajo de este comentario y probarlas una por una.
+    PSEUDO-CLASES Y PSEUDO-ELEMENTOS
+    Cada regla está limitada a su ejemplo para no modificar las lecciones anteriores.
+*/
+
+/* Pseudo-clases de interacción: solo afectan los ejemplos de la sección 19. */
+.enlace-interactivo:hover {
+    background-color: #dff3e5;
+    color: #0b5d2a;
+}
+
+.campo-enfoque:focus {
+    border-color: #4d478f;
+    outline: 3px solid #dcd8f4;
+    outline-offset: 2px;
+}
+
+/* Estados de los controles usados en las secciones 9 y 20. */
+input.campo-estado:disabled {
+    background-color: #e3e7eb;
+    color: #5f6b76;
+    cursor: not-allowed;
+}
+
+input.campo-estado:not(:disabled) {
+    background-color: #f6fbfe;
+    border: 2px solid #2f6f95;
+}
+
+.control-marcable:checked {
+    accent-color: #4d478f;
+}
+
+/* Posición de cada elemento dentro de la lista de ejemplo. */
+.lista-posiciones li:first-child {
+    background-color: #e5f6df;
+}
+
+.lista-posiciones li:last-child {
+    border-bottom: 3px solid #5a54a4;
+}
+
+.lista-posiciones li:nth-child(even) {
+    color: #4d478f;
+    font-weight: bold;
+}
+
+/* :not() excluye la tarea que ya tiene la clase completada. */
+.lista-tareas li:not(.completada) {
+    border-left: 4px solid #b45309;
+    padding-left: 8px;
+}
+
+/* Pseudo-elementos que seleccionan partes concretas. */
+.parrafo-inicial::first-letter {
+    color: #a61b1b;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.campo-placeholder::placeholder {
+    color: #626c78;
+    font-style: italic;
+}
+
+.lista-marcadores li::marker {
+    color: #5a54a4;
+    font-weight: bold;
+}
+
+/* ::before y ::after necesitan content para generar contenido. */
+.titulo-decorado::before {
+    color: #9a4b00;
+    content: "★ ";
+}
+
+.titulo-decorado::after {
+    color: #176b36;
+    content: " ✓";
+}

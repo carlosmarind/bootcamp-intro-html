@@ -48,6 +48,14 @@
                 <li><a href="#selector-atributo">Selectores de atributo</a></li>
                 <li><a href="#agrupar-selectores">Agrupación de selectores y errores</a></li>
                 <li><a href="#ejercicios-css">Ejercicios de CSS</a></li>
+                <li><a href="#diferencia-pseudo-selectores">Pseudo-clases y pseudo-elementos</a></li>
+                <li><a href="#interaccion-pseudo-clases">Interacción con pseudo-clases</a></li>
+                <li><a href="#estados-pseudo-clases">Estados de formularios</a></li>
+                <li><a href="#posicion-pseudo-clases">Posición dentro de una lista</a></li>
+                <li><a href="#exclusion-pseudo-clase">Excluir elementos con :not()</a></li>
+                <li><a href="#partes-pseudo-elementos">Partes de un elemento</a></li>
+                <li><a href="#contenido-generado">Contenido con ::before y ::after</a></li>
+                <li><a href="#practica-pseudo-selectores">Práctica de pseudo-selectores</a></li>
             </ol>
         </nav>
 
@@ -362,7 +370,13 @@
                 <form action="#formulario">
                     <p>
                         <label for="nombre">Nombre:</label>
-                        <input id="nombre" name="nombre" type="text" placeholder="Aquí tu nombre">
+                        <input id="nombre" class="campo-estado" name="nombre" type="text"
+                            placeholder="Aquí tu nombre">
+                    </p>
+                    <p>
+                        <label for="apellido">Apellido:</label>
+                        <input id="apellido" class="campo-estado" name="apellido" type="text"
+                            placeholder="Aquí tu apellido" disabled>
                     </p>
                     <p>
                         <label for="correo">Correo:</label>
@@ -860,6 +874,256 @@ h6 {
                         </p>
                     </li>
                 </ol>
+            </section>
+
+            <section id="diferencia-pseudo-selectores" class="paso">
+                <h2>18. Pseudo-clases y pseudo-elementos</h2>
+
+                <p>
+                    Los pseudo-selectores permiten seleccionar un elemento con más precisión sin agregar otro
+                    atributo al HTML. Se escriben después del selector principal.
+                </p>
+
+                <dl>
+                    <dt><code>:hover</code></dt>
+                    <dd>Pseudo-clase: selecciona un elemento mientras el puntero está sobre él.</dd>
+
+                    <dt><code>::first-letter</code></dt>
+                    <dd>Pseudo-elemento: selecciona la primera letra del contenido.</dd>
+                </dl>
+
+                <p>
+                    Una pseudo-clase usa un solo signo de dos puntos y describe un estado, una condición o una
+                    posición. Un pseudo-elemento usa dos signos y selecciona una parte concreta del elemento.
+                </p>
+            </section>
+
+            <section id="interaccion-pseudo-clases" class="paso">
+                <h2>19. Interacción con pseudo-clases</h2>
+
+                <p>
+                    <code>:hover</code> se activa mientras el puntero está sobre un elemento. <code>:focus</code>
+                    se activa cuando un control recibe el foco mediante un clic o el teclado.
+                </p>
+
+                <p>
+                    <a class="enlace-interactivo" href="#interaccion-pseudo-clases">
+                        Pasa el puntero sobre este enlace
+                    </a>
+                </p>
+
+                <p>
+                    <label for="campo-enfoque">Haz clic o navega con Tab:</label>
+                    <input id="campo-enfoque" class="campo-enfoque" type="text"
+                        placeholder="Este campo puede recibir foco">
+                </p>
+
+                <pre><code>.enlace-interactivo:hover {
+    background-color: #dff3e5;
+    color: #0b5d2a;
+}
+
+.campo-enfoque:focus {
+    border-color: #4d478f;
+    outline: 3px solid #dcd8f4;
+    outline-offset: 2px;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> el enlace cambia mientras el puntero está encima y el campo muestra
+                    un contorno al recibir el foco.
+                </p>
+            </section>
+
+            <section id="estados-pseudo-clases" class="paso">
+                <h2>20. Estados de formularios</h2>
+
+                <p>
+                    Algunas pseudo-clases describen el estado actual de un control. <code>:disabled</code>
+                    encuentra controles deshabilitados, <code>:not(:disabled)</code> excluye esos controles y
+                    <code>:checked</code> encuentra opciones marcadas.
+                </p>
+
+                <p>Compara los campos Nombre y Apellido de la sección de formularios.</p>
+                <p><a href="#formulario">Ir al formulario de ejemplo</a>.</p>
+
+                <p>
+                    <input id="aceptar-practica" class="control-marcable" type="checkbox">
+                    <label for="aceptar-practica">Marcar esta opción de práctica</label>
+                </p>
+
+                <pre><code>input.campo-estado:disabled {
+    background-color: #e3e7eb;
+    color: #5f6b76;
+    cursor: not-allowed;
+}
+
+input.campo-estado:not(:disabled) {
+    background-color: #f6fbfe;
+    border: 2px solid #2f6f95;
+}
+
+.control-marcable:checked {
+    accent-color: #4d478f;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> Nombre conserva un borde azul, Apellido aparece deshabilitado y la
+                    casilla marcada usa el color violeta.
+                </p>
+            </section>
+
+            <section id="posicion-pseudo-clases" class="paso">
+                <h2>21. Posición dentro de una lista</h2>
+
+                <p>
+                    También podemos seleccionar elementos según su posición entre los hijos de un mismo padre.
+                    La posición comienza en 1.
+                </p>
+
+                <ol class="lista-posiciones">
+                    <li>Primer elemento.</li>
+                    <li>Segundo elemento.</li>
+                    <li>Tercer elemento.</li>
+                    <li>Último elemento.</li>
+                </ol>
+
+                <pre><code>.lista-posiciones li:first-child {
+    background-color: #e5f6df;
+}
+
+.lista-posiciones li:last-child {
+    border-bottom: 3px solid #5a54a4;
+}
+
+.lista-posiciones li:nth-child(even) {
+    color: #4d478f;
+    font-weight: bold;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> el primero tiene fondo verde claro, el último tiene un borde inferior
+                    y las posiciones pares usan texto violeta.
+                </p>
+            </section>
+
+            <section id="exclusion-pseudo-clase" class="paso">
+                <h2>22. Excluir elementos con <code>:not()</code></h2>
+
+                <p>
+                    <code>:not()</code> selecciona los elementos que no coinciden con el selector escrito entre
+                    paréntesis. En este ejemplo excluimos la tarea que ya tiene la clase <code>completada</code>.
+                </p>
+
+                <ul class="lista-tareas">
+                    <li class="completada">Leer la explicación.</li>
+                    <li>Probar el ejemplo.</li>
+                    <li>Resolver el ejercicio.</li>
+                </ul>
+
+                <pre><code>.lista-tareas li:not(.completada) {
+    border-left: 4px solid #b45309;
+    padding-left: 8px;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> solamente las dos tareas sin la clase <code>completada</code> reciben
+                    el borde naranja.
+                </p>
+            </section>
+
+            <section id="partes-pseudo-elementos" class="paso">
+                <h2>23. Partes de un elemento</h2>
+
+                <p>
+                    Los pseudo-elementos seleccionan una parte que no aparece como una etiqueta separada en el
+                    HTML. Cada ejemplo siguiente trabaja con una parte diferente.
+                </p>
+
+                <p class="parrafo-inicial">Esta primera letra recibe un estilo especial.</p>
+
+                <p>
+                    <label for="campo-placeholder">Ejemplo de placeholder:</label>
+                    <input id="campo-placeholder" class="campo-placeholder" type="text"
+                        placeholder="Escribe tu ciudad">
+                </p>
+
+                <ul class="lista-marcadores">
+                    <li>HTML organiza.</li>
+                    <li>CSS presenta.</li>
+                </ul>
+
+                <pre><code>.parrafo-inicial::first-letter {
+    color: #a61b1b;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.campo-placeholder::placeholder {
+    color: #626c78;
+    font-style: italic;
+}
+
+.lista-marcadores li::marker {
+    color: #5a54a4;
+    font-weight: bold;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> cambia la primera letra del párrafo, la pista del campo y los
+                    marcadores de la lista, pero no todo el elemento.
+                </p>
+            </section>
+
+            <section id="contenido-generado" class="paso">
+                <h2>24. Contenido con <code>::before</code> y <code>::after</code></h2>
+
+                <p>
+                    <code>::before</code> y <code>::after</code> pueden generar contenido antes o después del
+                    contenido original. Para que aparezcan, necesitan la propiedad <code>content</code>.
+                </p>
+
+                <h3 class="titulo-decorado">Título decorado desde CSS</h3>
+
+                <pre><code>.titulo-decorado::before {
+    color: #9a4b00;
+    content: "★ ";
+}
+
+.titulo-decorado::after {
+    color: #176b36;
+    content: " ✓";
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> la estrella y la marca aparecen alrededor del título aunque esos
+                    símbolos no están escritos dentro del <code>&lt;h3&gt;</code>.
+                </p>
+
+                <p>
+                    El contenido generado en este ejemplo es decorativo; la información importante debe permanecer en
+                    el HTML.
+                </p>
+            </section>
+
+            <section id="practica-pseudo-selectores" class="paso">
+                <h2>25. Práctica de pseudo-selectores</h2>
+
+                <p>
+                    Resuelve cada desafío modificando temporalmente una de las reglas anteriores. Después de
+                    observar el resultado, vuelve a dejar la regla original.
+                </p>
+
+                <ol>
+                    <li>Cambiar el color del enlace solo durante <code>:hover</code>.</li>
+                    <li>Seleccionar únicamente los elementos impares con <code>:nth-child(odd)</code>.</li>
+                    <li>Agregar un símbolo decorativo mediante <code>::before</code> y <code>content</code>.</li>
+                </ol>
+
+                <p>
+                    En cada ejercicio identifica primero el elemento HTML, luego el estado o la parte que deseas
+                    seleccionar y finalmente el cambio visual que esperas observar.
+                </p>
             </section>
         </div>
     </main>
