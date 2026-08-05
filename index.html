@@ -1257,6 +1257,56 @@ samp::before {
                     mientras cada <code>div</code> comienza en una línea nueva y se extiende horizontalmente.
                 </p>
             </section>
+
+            <section id="modelo-caja-css" class="paso">
+
+                <h2>28. Mode de caja y box-sizing</h2>
+
+                <p>Todo elemento visible en nuestro documento HTML se representa como una caja formada por
+                    <strong>contenido, padding, border y margin</strong>. La propiedad <code>box-sizing</code> define
+                    como se interpreta
+                    el ancho declarado.
+                </p>
+
+                <ul>
+                    <li><strong>Area amarilla:</strong>espacio exterior donde se observa el margin</li>
+                    <li><strong>Linea azul oscura:</strong> border de 6px</li>
+                    <li><strong>Area Celeste:</strong>padding de 16px</li>
+                    <li><strong>Area Blanca:</strong> Contenido</li>
+                </ul>
+
+                <div class="comparacion-modelo-caja">
+
+                    <article class="tarjeta-modelo-caja">
+                        <h3>content-box (valor predeterminado)</h3>
+                        <div class="zona-margen">
+                            <p class="etiqueta-margen">margin: 10px</p>
+                            <div class="caja-modelo caja-content-box">
+                                <div class="contenido-caja">
+                                    <strong>contenido</strong>
+                                    <span>width: 150px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+
+                    <article class="tarjeta-modelo-caja">
+                        <h3>border-box</h3>
+                        <div class="zona-margen">
+                            <p class="etiqueta-margen">margin: 10px</p>
+                            <div class="caja-modelo caja-border-box">
+                                <div class="contenido-caja">
+                                    <strong>contenido</strong>
+                                    <span>width: 106px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </section>
+
         </div>
     </main>
 
