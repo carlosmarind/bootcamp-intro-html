@@ -287,3 +287,21 @@ samp {
 #texto-especificidad {
     color: blue;
 }
+
+
+.ejemplo-especificidad:hover {
+    background-color: #fff1b8;
+}
+
+samp::before {
+    content: "Muestra: ";
+    font-weight: bold;
+}
+
+.empate-primero {
+    background-color: #d7efff;
+}
+
+.empate-segundo {
+    background-color: #e5f6df;
+}

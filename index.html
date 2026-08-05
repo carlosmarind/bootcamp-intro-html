@@ -1158,7 +1158,104 @@ input.campo-estado:not(:disabled) {
                         style="color:#a61b1b">Este texto
                         recibe varias reglas al mismo tiempo</samp>
                 </p>
+                <pre><code>&lt;samp id="texto-especificidad"
+    class="ejemplo-especificidad"
+    data-prioridad="atributo"
+    style="color: #a61b1b;"&gt;
+    Este texto recibe varias reglas al mismo tiempo.
+&lt;/samp&gt;</code></pre>
 
+                <pre><code>samp {
+    color: #176b36;
+}
+
+[data-prioridad="atributo"] {
+    color: #9a4b00;
+}
+
+.ejemplo-especificidad {
+    color: #6b3fa0;
+}
+
+#texto-especificidad {
+    color: #245775;
+}
+
+.ejemplo-especificidad:hover {
+    background-color: #fff1b8;
+}
+
+samp::before {
+    content: "Muestra: ";
+    font-weight: bold;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> el texto permanece rojo por el estilo inline, aparece el
+                    prefijo creado con <code>::before</code> y el fondo cambia al pasar el puntero.
+                </p>
+
+                <h3>Empate de especificidad</h3>
+                <p class="empate-primero empate-segundo">
+                    Este párrafo tiene dos clases con la misma especificidad.
+                </p>
+
+                <pre><code>.empate-primero {
+    background-color: #d7efff;
+}
+
+.empate-segundo {
+    background-color: #e5f6df;
+}</code></pre>
+
+                <p>
+                    Ambas reglas tienen <code>0-0-1-0</code>. Como <code>.empate-segundo</code> aparece después
+                    en <code>styles.css</code>, su fondo verde claro gana. Cada selector adicional suma en su nivel.
+                </p>
+
+                <p>
+                    El estilo inline es útil para observar la prioridad, pero normalmente conviene conservar
+                    los estilos generales en la hoja CSS para evitar repeticiones.
+                </p>
+            </section>
+
+            <section id="inline-block-css" class="paso">
+                <h2>27. Elementos inline y block</h2>
+
+                <p>
+                    Un elemento <em>block</em> comienza en una línea nueva y ocupa el ancho disponible. Un
+                    elemento <em>inline</em> permanece dentro de la línea y ocupa el espacio de su contenido.
+                </p>
+
+                <div class="zona-display">
+                    <p>
+                        Texto anterior
+                        <span class="ejemplo-inline">span inline</span>
+                        texto posterior en la misma línea.
+                    </p>
+                    <div class="ejemplo-block">Primer div block</div>
+                    <div class="ejemplo-block">Segundo div block</div>
+                </div>
+
+                <pre><code>.ejemplo-inline {
+    background-color: #fff1b8;
+    border: 2px solid #9a4b00;
+    display: inline;
+    padding: 4px;
+}
+
+.ejemplo-block {
+    background-color: #d7efff;
+    border: 2px solid #2f6f95;
+    display: block;
+    margin-bottom: 8px;
+    padding: 8px;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> el <code>span</code> comparte la línea con el texto vecino,
+                    mientras cada <code>div</code> comienza en una línea nueva y se extiende horizontalmente.
+                </p>
             </section>
         </div>
     </main>
