@@ -305,3 +305,44 @@ samp::before {
 .empate-segundo {
     background-color: #e5f6df;
 }
+
+.tarjeta-modelo-caja {
+    margin-bottom: 24px;
+}
+
+.tarjeta-modelo-caja:last-child {
+    margin-bottom: 0;
+}
+
+.zona-margen {
+    background-color: bisque;
+    border: 2px dashed #9a4b00;
+    padding: 6px;
+}
+
+.etiqueta-margen {
+    margin: 0;
+    text-align: center;
+}
+
+.caja-modelo {
+    background-color: #d7efff;
+    border: 6px solid #2f6f95;
+    margin: 10px;
+    padding: 16px;
+    width: 150px;
+}
+
+.caja-content-box {
+    box-sizing: content-box;
+}
+
+.caja-border-box {
+    box-sizing: border-box;
+}
+
+.contenido-caja {
+    background-color: white;
+    min-height: 64px;
+    text-align: center;
+}
