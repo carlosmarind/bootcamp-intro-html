@@ -270,3 +270,20 @@ input.campo-estado:not(:disabled) {
     color: #176b36;
     content: " ✓";
 }
+
+
+samp {
+    color: #176b36;
+}
+
+[data-prioridad="atributo"] {
+    color: #9a4b00;
+}
+
+.ejemplo-especificidad {
+    color: #3f3c8f;
+}
+
+#texto-especificidad {
+    color: blue;
+}

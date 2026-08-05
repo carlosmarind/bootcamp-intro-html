@@ -370,8 +370,7 @@
                 <form action="#formulario">
                     <p>
                         <label for="nombre">Nombre:</label>
-                        <input id="nombre" class="campo-estado" name="nombre" type="text"
-                            placeholder="Aquí tu nombre">
+                        <input id="nombre" class="campo-estado" name="nombre" type="text" placeholder="Aquí tu nombre">
                     </p>
                     <p>
                         <label for="apellido">Apellido:</label>
@@ -1044,8 +1043,7 @@ input.campo-estado:not(:disabled) {
 
                 <p>
                     <label for="campo-placeholder">Ejemplo de placeholder:</label>
-                    <input id="campo-placeholder" class="campo-placeholder" type="text"
-                        placeholder="Escribe tu ciudad">
+                    <input id="campo-placeholder" class="campo-placeholder" type="text" placeholder="Escribe tu ciudad">
                 </p>
 
                 <ul class="lista-marcadores">
@@ -1124,6 +1122,43 @@ input.campo-estado:not(:disabled) {
                     En cada ejercicio identifica primero el elemento HTML, luego el estado o la parte que deseas
                     seleccionar y finalmente el cambio visual que esperas observar.
                 </p>
+            </section>
+
+            <section id="especificidad-css" class="paso">
+                <h2>26. Especificidad y prioridad CSS</h2>
+                <p>
+                    Cuando varias reglas coinciden con el mismo elemento, la especificidad ayuda al navegador
+                    a decidir cual tiene prioridad. Podemos representarla por cuatro grupos de numeros.
+                </p>
+                <dl class="lista-especificidad">
+                    <dt><code>1-0-0-0</code>: estilo inline</dt>
+                    <dd>Se escribe dentro del atributo <code>style</code> del propio elemento</dd>
+
+                    <dt><code>0-1-0-0</code>: selector por ID</dt>
+                    <dd>Ejemplo: <code>#texto-especificidad</code></dd>
+
+                    <dt><code>0-0-1-0</code>: por clase, pseudo-clase o atributo</dt>
+                    <dd>
+                        Ejemplos: <code>.ejemplo-especificidad</code>, <code>:hover</code>,
+                        <code>[data-prioridad]</code>
+                    </dd>
+
+                    <dt><code>0-0-0-1</code>: elemento o pseudo-elemento</dt>
+                    <dd>Ejemplos: <code>samp</code> y <code>::before</code></dd>
+                </dl>
+
+                <h3>Ejemplo real</h3>
+                <p>
+                    El siguiente element coincide con reglas de elemento, atributo, clase e ID. y ademas tendra un
+                    estilo inline
+                </p>
+
+                <p>
+                    <samp id="texto-especificidad" class="ejemplo-especificidad" data-prioridad="atributo"
+                        style="color:#a61b1b">Este texto
+                        recibe varias reglas al mismo tiempo</samp>
+                </p>
+
             </section>
         </div>
     </main>
