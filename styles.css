@@ -441,3 +441,129 @@ samp::before {
 
     flex-flow: row-reverse wrap
 }
+
+.flex-demo-justify-start {
+    justify-content: flex-start;
+}
+
+.flex-demo-justify-end {
+    justify-content: flex-end;
+}
+
+.flex-demo-justify-center {
+    justify-content: center;
+}
+
+.flex-demo-justify-between {
+    justify-content: space-between;
+}
+
+.flex-demo-justify-around {
+    justify-content: space-around;
+}
+
+.flex-demo-justify-evenly {
+    justify-content: space-evenly;
+}
+
+.flex-demo-alto {
+    min-height: 140px;
+}
+
+.flex-demo-align-stretch {
+    align-items: stretch;
+}
+
+.flex-demo-align-start {
+    align-items: flex-start;
+}
+
+.flex-demo-align-end {
+    align-items: flex-end;
+}
+
+.flex-demo-align-center {
+    align-items: center;
+}
+
+.flex-item-texto-pequeno {
+    font-size: 12px
+}
+
+.flex-item-texto-grande {
+    font-size: 28px
+}
+
+.flex-demo-align-baseline {
+    align-items: baseline;
+}
+
+.flex-demo-multilinea {
+    flex-wrap: wrap;
+    min-height: 300px;
+    width: 360px;
+}
+
+/* comportamiento por defecto*/
+.flex-demo-content-stretch {
+    align-content: stretch;
+}
+
+.flex-demo-content-start {
+    align-content: flex-start;
+}
+
+.flex-demo-content-end {
+    align-content: flex-end;
+}
+
+.flex-demo-content-center {
+    align-content: center;
+}
+
+.flex-demo-content-between {
+    align-content: space-between;
+}
+
+.flex-demo-content-around {
+    align-content: space-around;
+}
+
+.flex-demo-content-evenly {
+    align-content: space-evenly;
+}
+
+
+/* order cambia el orden visual, pero conserva el orden escrito en el HTML. */
+.flex-item-orden-1 {
+    order: 2;
+}
+
+.flex-item-orden-2 {
+    order: 1;
+}
+
+.flex-item-orden-3 {
+    order: 5;
+}
+
+.flex-item-orden-4 {
+    order: 4;
+}
+
+.flex-item-orden-5 {
+    order: 3;
+}
+
+/* flex-grow reparte el espacio libre mediante factores de crecimiento. */
+.flex-item-base-crecimiento {
+    width: 60px;
+}
+
+.flex-item-grow-1 {
+    flex-grow: 1;
+}
+
+.flex-item-grow-2 {
+    flex-grow: 2;
+}

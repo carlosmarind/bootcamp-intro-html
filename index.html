@@ -59,6 +59,14 @@
                 <li><a href="#especificidad-css">Especificidad y prioridad</a></li>
                 <li><a href="#inline-block-css">Elementos inline y block</a></li>
                 <li><a href="#modelo-caja-css">Modelo de caja y box-sizing</a></li>
+                <li><a href="#introduccion-flexbox">Introducción a Flexbox</a></li>
+                <li><a href="#direccion-flexbox">Dirección y ejes</a></li>
+                <li><a href="#wrap-flexbox">Saltos de línea y flex-flow</a></li>
+                <li><a href="#justify-content-flexbox">Distribución en el eje principal</a></li>
+                <li><a href="#align-items-flexbox">Alineación en el eje transversal</a></li>
+                <li><a href="#align-content-flexbox">Distribución de varias líneas</a></li>
+                <li><a href="#order-flexbox">Orden visual de los elementos</a></li>
+                <li><a href="#flex-grow-flexbox">Crecimiento de los elementos</a></li>
             </ol>
         </nav>
 
@@ -1499,6 +1507,386 @@ samp::before {
                     <div class="flex-item flex-item-ancho-fijo">5</div>
                     <div class="flex-item flex-item-ancho-fijo">6</div>
                 </div>
+
+                <pre>
+                    <code>.flex-demo-nowrap {
+                                flex-wrap: nowrap;
+                            }
+
+                            .flex-demo-wrap {
+                                flex-wrap: wrap;
+                            }
+
+                            .flex-demo-flow-row-wrap {
+                                flex-flow: row wrap;
+                            }
+                    </code>
+                </pre>
+
+                <p>
+                    <strong>Qué observar:</strong> <code>nowrap</code> mantiene una línea y la demostración permite
+                    desplazamiento horizontal si falta espacio. <code>wrap</code> crea nuevas líneas.
+                    <code>flex-flow: row wrap</code> reúne dirección y salto en una sola declaración.
+                </p>
+            </section>
+
+            <section id="justify-content-flexbox" class="paso">
+                <h2>32. Distribución en el eje principal con <code>justify-content</code></h2>
+
+                <p>
+                    <code>justify-content</code> distribuye los flex items y el espacio libre sobre el eje
+                    principal. En estos ejemplos usamos <code>flex-direction: row</code>, por lo que el eje
+                    principal es horizontal.
+                </p>
+
+                <h3><code>flex-start</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-justify-start">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <h3><code>flex-end</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-justify-end">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <h3><code>center</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-justify-center">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <h3><code>space-between</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-justify-between">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <h3><code>space-around</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-justify-around">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <h3><code>space-evenly</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-justify-evenly">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <pre><code>
+                        .flex-demo-justify-start {
+                            justify-content: flex-start;
+                        }
+
+                        .flex-demo-justify-end {
+                            justify-content: flex-end;
+                        }
+
+                        .flex-demo-justify-center {
+                            justify-content: center;
+                        }
+
+                        .flex-demo-justify-between {
+                            justify-content: space-between;
+                        }
+
+                        .flex-demo-justify-around {
+                            justify-content: space-around;
+                        }
+
+                        .flex-demo-justify-evenly {
+                            justify-content: space-evenly;
+                        }
+                </code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> <code>flex-start</code>, <code>flex-end</code> y
+                    <code>center</code> agrupan los elementos. Los valores <code>space-*</code> reparten el espacio
+                    libre: <code>space-between</code> deja los extremos pegados, <code>space-around</code> deja
+                    medio espacio en los extremos y <code>space-evenly</code> crea espacios iguales.
+                </p>
+            </section>
+
+
+            <section id="align-items-flexbox" class="paso">
+                <h2>33. Alineación en el eje transversal con <code>align-items</code></h2>
+
+                <p>
+                    <code>align-items</code> alinea los flex items sobre el eje transversal. Como estas
+                    demostraciones usan <code>row</code>, el eje transversal es vertical.
+                </p>
+
+                <h3><code>stretch</code> (valor inicial)</h3>
+                <div class="flex-demo flex-demo-activo flex-demo-alto flex-demo-align-stretch">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <h3><code>flex-start</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-alto flex-demo-align-start">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <h3><code>flex-end</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-alto flex-demo-align-end">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+                <h3><code>center</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-alto flex-demo-align-center">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+
+
+                <h3><code>baseline</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-alto flex-demo-align-baseline">
+                    <div class="flex-item flex-item-texto-pequeno">Texto pequeño</div>
+                    <div class="flex-item flex-item-texto-grande">Texto grande</div>
+                    <div class="flex-item">texto normal</div>
+                </div>
+                <pre><code>.flex-demo-align-stretch {
+    align-items: stretch;
+}
+
+.flex-demo-align-start {
+    align-items: flex-start;
+}
+
+.flex-demo-align-end {
+    align-items: flex-end;
+}
+
+.flex-demo-align-center {
+    align-items: center;
+}
+
+.flex-demo-align-baseline {
+    align-items: baseline;
+}
+
+.flex-item-texto-pequeno {
+    font-size: 12px;
+}
+
+.flex-item-texto-grande {
+    font-size: 28px;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> <code>stretch</code> estira los elementos cuyo tamaño
+                    transversal es automático. <code>flex-start</code>, <code>flex-end</code> y <code>center</code>
+                    cambian su posición. <code>baseline</code> alinea la línea base del texto, por eso las cajas
+                    comienzan a distintas alturas cuando el tamaño de la letra cambia.
+                </p>
+
+            </section>
+
+
+            <section id="align-content-flexbox" class="paso">
+                <h2>34. Distribución de varias líneas con <code>align-content</code></h2>
+
+                <p>
+                    <code>align-content</code> distribuye líneas completas sobre el eje transversal. Para ver su
+                    efecto necesitamos <code>flex-wrap: wrap</code>, más de una línea y espacio libre dentro de un
+                    contenedor alto.
+                </p>
+
+                <h3><code>stretch</code> (valor inicial)</h3>
+                <div class="flex-demo flex-demo-activo flex-demo-multilinea flex-demo-content-stretch">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                    <div class="flex-item flex-item-ancho-fijo">7</div>
+                    <div class="flex-item flex-item-ancho-fijo">8</div>
+                </div>
+
+                <h3><code>flex-start</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-multilinea flex-demo-content-start">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                    <div class="flex-item flex-item-ancho-fijo">7</div>
+                    <div class="flex-item flex-item-ancho-fijo">8</div>
+                </div>
+
+                <h3><code>flex-end</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-multilinea flex-demo-content-end">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                    <div class="flex-item flex-item-ancho-fijo">7</div>
+                    <div class="flex-item flex-item-ancho-fijo">8</div>
+                </div>
+
+                <h3><code>center</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-multilinea flex-demo-content-center">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                    <div class="flex-item flex-item-ancho-fijo">7</div>
+                    <div class="flex-item flex-item-ancho-fijo">8</div>
+                </div>
+
+                <h3><code>space-betwen</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-multilinea flex-demo-content-between">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                    <div class="flex-item flex-item-ancho-fijo">7</div>
+                    <div class="flex-item flex-item-ancho-fijo">8</div>
+                </div>
+
+                <h3><code>space-around</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-multilinea flex-demo-content-around">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                    <div class="flex-item flex-item-ancho-fijo">7</div>
+                    <div class="flex-item flex-item-ancho-fijo">8</div>
+                </div>
+
+                <h3><code>space-evenly</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-multilinea flex-demo-content-evenly">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                    <div class="flex-item flex-item-ancho-fijo">7</div>
+                    <div class="flex-item flex-item-ancho-fijo">8</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                    <div class="flex-item flex-item-ancho-fijo">7</div>
+                    <div class="flex-item flex-item-ancho-fijo">8</div>
+                </div>
+            </section>
+
+            <section id="order-flexbox" class="paso">
+                <h2>35. Orden visual de los elementos con <code>order</code></h2>
+
+                <p>
+                    La propiedad <code>order</code> pertenece a los flex items. Su valor inicial es <code>0</code> y
+                    los valores menores aparecen antes que los mayores.
+                </p>
+
+                <h3>Orden escrito en el HTML</h3>
+                <div class="flex-demo flex-demo-activo">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                </div>
+
+                <h3>Orden visual modificado</h3>
+                <div class="flex-demo flex-demo-activo">
+                    <div class="flex-item flex-item-orden-1">1</div>
+                    <div class="flex-item flex-item-orden-2">2</div>
+                    <div class="flex-item flex-item-orden-3">3</div>
+                    <div class="flex-item flex-item-orden-4">4</div>
+                    <div class="flex-item flex-item-orden-5">5</div>
+                </div>
+
+                <pre><code>.flex-item-orden-1 {
+    order: 2;
+}
+
+.flex-item-orden-2 {
+    order: 1;
+}
+
+.flex-item-orden-3 {
+    order: 5;
+}
+
+.flex-item-orden-4 {
+    order: 4;
+}
+
+.flex-item-orden-5 {
+    order: 3;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> visualmente aparece la secuencia 2, 1, 5, 4, 3, pero el HTML
+                    sigue escrito como 1, 2, 3, 4, 5. Por accesibilidad, no debemos usar <code>order</code> para
+                    ocultar un orden semántico incorrecto.
+                </p>
+            </section>
+
+            <section id="flex-grow-flexbox" class="paso">
+                <h2>36. Crecimiento de los elementos con <code>flex-grow</code></h2>
+
+                <p>
+                    <code>flex-grow</code> indica cómo se reparte el espacio libre entre los flex items. Su valor
+                    inicial es <code>0</code>. En el ejemplo usaremos factores 1, 2 y 1.
+                </p>
+
+                <h3>HTML objetivo</h3>
+                <pre><code>&lt;div class="flex-demo flex-demo-activo"&gt;
+    &lt;div class="flex-item flex-item-base-crecimiento flex-item-grow-1"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item flex-item-base-crecimiento flex-item-grow-2"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item flex-item-base-crecimiento flex-item-grow-1"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <div class="flex-demo flex-demo-activo">
+                    <div class="flex-item flex-item-base-crecimiento flex-item-grow-1">1</div>
+                    <div class="flex-item flex-item-base-crecimiento flex-item-grow-2">2</div>
+                    <div class="flex-item flex-item-base-crecimiento flex-item-grow-1">3</div>
+                </div>
+
+                <pre><code>.flex-item-base-crecimiento {
+    width: 60px;
+}
+
+.flex-item-grow-1 {
+    flex-grow: 1;
+}
+
+.flex-item-grow-2 {
+    flex-grow: 2;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> la caja 2 recibe dos partes del espacio libre, mientras las
+                    cajas 1 y 3 reciben una parte cada una. Eso no significa que su ancho final sea exactamente el
+                    doble, porque las tres cajas ya tenían un ancho inicial antes de repartir el espacio restante.
+                </p>
             </section>
         </div>
     </main>
