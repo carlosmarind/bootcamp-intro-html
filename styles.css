@@ -271,7 +271,7 @@ input.campo-estado:not(:disabled) {
     content: " ✓";
 }
 
-
+/* ESPECIFICIDAD: las reglas coinciden con el mismo ejemplo. */
 samp {
     color: #176b36;
 }
@@ -281,13 +281,12 @@ samp {
 }
 
 .ejemplo-especificidad {
-    color: #3f3c8f;
+    color: #6b3fa0;
 }
 
 #texto-especificidad {
-    color: blue;
+    color: #245775;
 }
-
 
 .ejemplo-especificidad:hover {
     background-color: #fff1b8;
@@ -306,6 +305,29 @@ samp::before {
     background-color: #e5f6df;
 }
 
+/* DISPLAY: ejemplos limitados a la sección 27. */
+.zona-display {
+    background-color: #f8fafc;
+    border: 2px dashed #5a54a4;
+    padding: 12px;
+}
+
+.ejemplo-inline {
+    background-color: #fff1b8;
+    border: 2px solid #9a4b00;
+    display: inline;
+    padding: 4px;
+}
+
+.ejemplo-block {
+    background-color: #d7efff;
+    border: 2px solid #2f6f95;
+    display: block;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+/* MODELO DE CAJA: las tarjetas conservan el flujo normal de elementos block. */
 .tarjeta-modelo-caja {
     margin-bottom: 24px;
 }
@@ -315,14 +337,22 @@ samp::before {
 }
 
 .zona-margen {
-    background-color: bisque;
+    background-color: #f7e7bd;
     border: 2px dashed #9a4b00;
-    padding: 6px;
+    padding: 6px 0;
 }
 
 .etiqueta-margen {
     margin: 0;
     text-align: center;
+}
+
+.zona-margen-content-box {
+    width: 214px;
+}
+
+.zona-margen-border-box {
+    width: 170px;
 }
 
 .caja-modelo {
