@@ -56,6 +56,9 @@
                 <li><a href="#partes-pseudo-elementos">Partes de un elemento</a></li>
                 <li><a href="#contenido-generado">Contenido con ::before y ::after</a></li>
                 <li><a href="#practica-pseudo-selectores">Práctica de pseudo-selectores</a></li>
+                <li><a href="#especificidad-css">Especificidad y prioridad</a></li>
+                <li><a href="#inline-block-css">Elementos inline y block</a></li>
+                <li><a href="#modelo-caja-css">Modelo de caja y box-sizing</a></li>
             </ol>
         </nav>
 
@@ -1125,39 +1128,41 @@ input.campo-estado:not(:disabled) {
             </section>
 
             <section id="especificidad-css" class="paso">
-                <h2>26. Especificidad y prioridad CSS</h2>
+                <h2>26. Especificidad y prioridad</h2>
+
                 <p>
                     Cuando varias reglas coinciden con el mismo elemento, la especificidad ayuda al navegador
-                    a decidir cual tiene prioridad. Podemos representarla por cuatro grupos de numeros.
+                    a decidir cuál tiene prioridad. Podemos representarla con cuatro grupos de números.
                 </p>
+
                 <dl class="lista-especificidad">
                     <dt><code>1-0-0-0</code>: estilo inline</dt>
-                    <dd>Se escribe dentro del atributo <code>style</code> del propio elemento</dd>
+                    <dd>Se escribe en el atributo <code>style</code> del propio elemento.</dd>
 
                     <dt><code>0-1-0-0</code>: selector por ID</dt>
-                    <dd>Ejemplo: <code>#texto-especificidad</code></dd>
+                    <dd>Ejemplo: <code>#texto-especificidad</code>.</dd>
 
-                    <dt><code>0-0-1-0</code>: por clase, pseudo-clase o atributo</dt>
+                    <dt><code>0-0-1-0</code>: clase, pseudo-clase o atributo</dt>
                     <dd>
-                        Ejemplos: <code>.ejemplo-especificidad</code>, <code>:hover</code>,
-                        <code>[data-prioridad]</code>
+                        Ejemplos: <code>.ejemplo-especificidad</code>, <code>:hover</code> y
+                        <code>[data-prioridad]</code>.
                     </dd>
 
                     <dt><code>0-0-0-1</code>: elemento o pseudo-elemento</dt>
-                    <dd>Ejemplos: <code>samp</code> y <code>::before</code></dd>
+                    <dd>Ejemplos: <code>samp</code> y <code>::before</code>.</dd>
                 </dl>
 
                 <h3>Ejemplo real</h3>
                 <p>
-                    El siguiente element coincide con reglas de elemento, atributo, clase e ID. y ademas tendra un
-                    estilo inline
+                    El siguiente elemento coincide con reglas de elemento, atributo, clase e ID. Además tiene
+                    un estilo inline, por lo que el texto queda rojo.
                 </p>
 
                 <p>
                     <samp id="texto-especificidad" class="ejemplo-especificidad" data-prioridad="atributo"
-                        style="color:#a61b1b">Este texto
-                        recibe varias reglas al mismo tiempo</samp>
+                        style="color: #a61b1b;">Este texto recibe varias reglas al mismo tiempo.</samp>
                 </p>
+
                 <pre><code>&lt;samp id="texto-especificidad"
     class="ejemplo-especificidad"
     data-prioridad="atributo"
@@ -1259,52 +1264,102 @@ samp::before {
             </section>
 
             <section id="modelo-caja-css" class="paso">
+                <h2>28. Modelo de caja y <code>box-sizing</code></h2>
 
-                <h2>28. Mode de caja y box-sizing</h2>
-
-                <p>Todo elemento visible en nuestro documento HTML se representa como una caja formada por
-                    <strong>contenido, padding, border y margin</strong>. La propiedad <code>box-sizing</code> define
-                    como se interpreta
-                    el ancho declarado.
+                <p>
+                    Todo elemento visible se representa como una caja formada por contenido, padding, border
+                    y margin. La propiedad <code>box-sizing</code> define cómo se interpreta el ancho declarado.
                 </p>
 
                 <ul>
-                    <li><strong>Area amarilla:</strong>espacio exterior donde se observa el margin</li>
-                    <li><strong>Linea azul oscura:</strong> border de 6px</li>
-                    <li><strong>Area Celeste:</strong>padding de 16px</li>
-                    <li><strong>Area Blanca:</strong> Contenido</li>
+                    <li><strong>Área amarilla:</strong> espacio exterior donde se observa el margin.</li>
+                    <li><strong>Línea azul oscura:</strong> border de 6px.</li>
+                    <li><strong>Área celeste:</strong> padding de 16px.</li>
+                    <li><strong>Área blanca:</strong> content.</li>
                 </ul>
 
-                <div class="comparacion-modelo-caja">
+                <p>
+                    Las demostraciones aparecen una debajo de la otra porque cada tarjeta conserva el flujo normal
+                    de un elemento block. Cada zona amarilla tiene el ancho exacto de la caja más sus márgenes
+                    laterales, para que los 10px se observen a ambos lados.
+                </p>
 
+                <div class="comparacion-modelo-caja">
                     <article class="tarjeta-modelo-caja">
-                        <h3>content-box (valor predeterminado)</h3>
-                        <div class="zona-margen">
-                            <p class="etiqueta-margen">margin: 10px</p>
+                        <h3><code>content-box</code> (valor inicial)</h3>
+                        <div class="zona-margen zona-margen-content-box">
+                            <p class="etiqueta-margen">margin: 10px por lado</p>
                             <div class="caja-modelo caja-content-box">
                                 <div class="contenido-caja">
-                                    <strong>contenido</strong>
+                                    <strong>content</strong><br>
                                     <span>width: 150px</span>
                                 </div>
                             </div>
                         </div>
-
+                        <p>
+                            Caja visible: 150 + 32 de padding + 12 de border = <strong>194px</strong>.
+                            Con ambos márgenes ocupa 214px.
+                        </p>
                     </article>
 
                     <article class="tarjeta-modelo-caja">
-                        <h3>border-box</h3>
-                        <div class="zona-margen">
-                            <p class="etiqueta-margen">margin: 10px</p>
+                        <h3><code>border-box</code></h3>
+                        <div class="zona-margen zona-margen-border-box">
+                            <p class="etiqueta-margen">margin: 10px por lado</p>
                             <div class="caja-modelo caja-border-box">
                                 <div class="contenido-caja">
-                                    <strong>contenido</strong>
-                                    <span>width: 106px</span>
+                                    <strong>content</strong><br>
+                                    <span>106px disponibles</span>
                                 </div>
                             </div>
                         </div>
-
+                        <p>
+                            Caja visible: <strong>150px</strong>. El content recibe 150 - 32 de padding - 12 de
+                            border = 106px. Con ambos márgenes ocupa 170px.
+                        </p>
                     </article>
                 </div>
+
+                <pre><code>.zona-margen {
+    background-color: #f7e7bd;
+    border: 2px dashed #9a4b00;
+    padding: 6px 0;
+}
+
+.etiqueta-margen {
+    margin: 0;
+    text-align: center;
+}
+
+.zona-margen-content-box {
+    width: 214px;
+}
+
+.zona-margen-border-box {
+    width: 170px;
+}
+
+.caja-modelo {
+    background-color: #d7efff;
+    border: 6px solid #2f6f95;
+    margin: 10px;
+    padding: 16px;
+    width: 150px;
+}
+
+.caja-content-box {
+    box-sizing: content-box;
+}
+
+.caja-border-box {
+    box-sizing: border-box;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> con las mismas medidas, <code>content-box</code> termina siendo
+                    más ancho porque suma padding y border. <code>border-box</code> los incluye dentro de los
+                    150px. El margin siempre permanece fuera y es transparente.
+                </p>
             </section>
 
         </div>
