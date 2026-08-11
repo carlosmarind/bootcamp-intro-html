@@ -1362,6 +1362,144 @@ samp::before {
                 </p>
             </section>
 
+
+            </section>
+
+            <section id="introduccion-flexbox" class="paso">
+                <h2>29. Introducción a Flexbox</h2>
+
+                <p>
+                    Flexbox es un sistema de CSS para distribuir elementos dentro de un contenedor. Primero
+                    elegimos el elemento padre y le aplicamos <code>display: flex</code>. Sus hijos directos se
+                    convierten en <em>flex items</em> o elementos flexibles.
+                </p>
+
+                <p>
+                    Usaremos el mismo HTML en las dos demostraciones. La única diferencia será el valor de
+                    <code>display</code> aplicado al contenedor.
+                </p>
+
+                <h3>HTML objetivo</h3>
+                <pre>
+                    <code>  &lt;div class="flex-demo flex-demo-activo"&gt;
+                                &lt;div class="flex-item"&gt;Caja 1&lt;/div&gt;
+                                &lt;div class="flex-item"&gt;Caja 2&lt;/div&gt;
+                                &lt;div class="flex-item"&gt;Caja 3&lt;/div&gt;
+                                &lt;div class="flex-item"&gt;Caja 4&lt;/div&gt;
+                            &lt;/div&gt;
+                    </code>
+                </pre>
+
+                <h3>Antes: flujo normal</h3>
+                <div class="flex-demo">
+                    <div class="flex-item">Caja 1</div>
+                    <div class="flex-item">Caja 2</div>
+                    <div class="flex-item">Caja 3</div>
+                    <div class="flex-item">Caja 4</div>
+                </div>
+
+                <h3>Después: contenedor flex</h3>
+                <div class="flex-demo flex-demo-activo">
+                    <div class="flex-item">Caja 1</div>
+                    <div class="flex-item">Caja 2</div>
+                    <div class="flex-item">Caja 3</div>
+                    <div class="flex-item">Caja 4</div>
+                </div>
+
+                <pre><code>.flex-demo-activo {
+    display: flex;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> en el flujo normal cada <code>div</code> empieza en una línea
+                    nueva. Al aplicar <code>display: flex</code> al padre, sus hijos directos se ubican en una fila.
+                    Los elementos que están fuera del contenedor no se convierten en flex items.
+                </p>
+            </section>
+
+            <section id="direccion-flexbox" class="paso">
+                <h2>30. Dirección y ejes con <code>flex-direction</code></h2>
+
+                <p>
+                    Un contenedor flex tiene un <strong>eje principal</strong> y un <strong>eje transversal</strong>.
+                    <code>flex-direction</code> define la dirección del eje principal. Su valor inicial es
+                    <code>row</code>.
+                </p>
+
+
+                <h3><code>Modo Row</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-row">
+                    <div class="flex-item">Caja 1</div>
+                    <div class="flex-item">Caja 2</div>
+                    <div class="flex-item">Caja 3</div>
+                    <div class="flex-item">Caja 4</div>
+                </div>
+
+                <h3><code>Modo Row reverse</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-row-reverse">
+                    <div class="flex-item">Caja 1</div>
+                    <div class="flex-item">Caja 2</div>
+                    <div class="flex-item">Caja 3</div>
+                    <div class="flex-item">Caja 4</div>
+                </div>
+
+                <h3><code>Modo Column</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-column">
+                    <div class="flex-item">Caja 1</div>
+                    <div class="flex-item">Caja 2</div>
+                    <div class="flex-item">Caja 3</div>
+                    <div class="flex-item">Caja 4</div>
+                </div>
+
+                <h3><code>Modo Column reverse</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-column-reverse">
+                    <div class="flex-item">Caja 1</div>
+                    <div class="flex-item">Caja 2</div>
+                    <div class="flex-item">Caja 3</div>
+                    <div class="flex-item">Caja 4</div>
+                </div>
+            </section>
+
+
+            <section id="wrap-flexbox" class="paso">
+                <h2>31. Saltos de línea con <code>flex-wrap</code> y <code>flex-flow</code></h2>
+
+                <p>
+                    Por defecto, los flex items intentan permanecer en una sola línea mediante
+                    <code>flex-wrap: nowrap</code>. Con <code>wrap</code>, los elementos que no caben continúan en
+                    una línea nueva.
+                </p>
+
+                <h3><code>nowrap</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-ancho-limitado flex-demo-nowrap">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                </div>
+
+                <h3><code>wrap</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-ancho-limitado flex-demo-wrap">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                </div>
+
+                <h3><code>flex-flow reverse wrap</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-ancho-limitado flex-demo-flow-raw-wrap">
+                    <div class="flex-item flex-item-ancho-fijo">1</div>
+                    <div class="flex-item flex-item-ancho-fijo">2</div>
+                    <div class="flex-item flex-item-ancho-fijo">3</div>
+                    <div class="flex-item flex-item-ancho-fijo">4</div>
+                    <div class="flex-item flex-item-ancho-fijo">5</div>
+                    <div class="flex-item flex-item-ancho-fijo">6</div>
+                </div>
+            </section>
         </div>
     </main>
 

@@ -376,3 +376,68 @@ samp::before {
     min-height: 64px;
     text-align: center;
 }
+
+
+.flex-demo {
+    background-color: #e8edf2;
+    border: 2px solid #5a54a4;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    overflow-x: auto;
+
+    padding: 8px;
+    width: 440px;
+}
+
+.flex-item {
+    background-color: #fff1b8;
+    border: 2px solid #9a4b00;
+    box-sizing: border-box;
+    margin: 2px;
+    min-width: 56px;
+    padding: 10px;
+    text-align: center;
+}
+
+.flex-demo-activo {
+    display: flex;
+}
+
+.flex-demo-row {
+    flex-direction: row;
+}
+
+.flex-demo-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-demo-column {
+    flex-direction: column;
+}
+
+.flex-demo-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.flex-demo-ancho-limitado {
+    width: 360px;
+}
+
+.flex-item-ancho-fijo {
+    width: 72px;
+    min-width: 72px;
+
+}
+
+.flex-demo-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-demo-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-demo-flow-raw-wrap {
+
+    flex-flow: row-reverse wrap
+}
