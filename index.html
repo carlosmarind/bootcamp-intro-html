@@ -1371,8 +1371,6 @@ samp::before {
             </section>
 
 
-            </section>
-
             <section id="introduccion-flexbox" class="paso">
                 <h2>29. Introducción a Flexbox</h2>
 
@@ -1466,6 +1464,28 @@ samp::before {
                     <div class="flex-item">Caja 3</div>
                     <div class="flex-item">Caja 4</div>
                 </div>
+
+                <pre><code>.flex-demo-row {
+    flex-direction: row;
+}
+
+.flex-demo-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-demo-column {
+    flex-direction: column;
+}
+
+.flex-demo-column-reverse {
+    flex-direction: column-reverse;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> <code>row</code> y <code>row-reverse</code> usan un eje principal
+                    horizontal. <code>column</code> y <code>column-reverse</code> lo cambian a vertical. Los valores
+                    <code>reverse</code> modifican el orden visual, no el orden escrito en el HTML.
+                </p>
             </section>
 
 
@@ -1498,8 +1518,8 @@ samp::before {
                     <div class="flex-item flex-item-ancho-fijo">6</div>
                 </div>
 
-                <h3><code>flex-flow reverse wrap</code></h3>
-                <div class="flex-demo flex-demo-activo flex-demo-ancho-limitado flex-demo-flow-raw-wrap">
+                <h3>Atajo <code>flex-flow</code></h3>
+                <div class="flex-demo flex-demo-activo flex-demo-ancho-limitado flex-demo-flow-row-wrap">
                     <div class="flex-item flex-item-ancho-fijo">1</div>
                     <div class="flex-item flex-item-ancho-fijo">2</div>
                     <div class="flex-item flex-item-ancho-fijo">3</div>
@@ -1508,20 +1528,17 @@ samp::before {
                     <div class="flex-item flex-item-ancho-fijo">6</div>
                 </div>
 
-                <pre>
-                    <code>.flex-demo-nowrap {
-                                flex-wrap: nowrap;
-                            }
+                <pre><code>.flex-demo-nowrap {
+    flex-wrap: nowrap;
+}
 
-                            .flex-demo-wrap {
-                                flex-wrap: wrap;
-                            }
+.flex-demo-wrap {
+    flex-wrap: wrap;
+}
 
-                            .flex-demo-flow-row-wrap {
-                                flex-flow: row wrap;
-                            }
-                    </code>
-                </pre>
+.flex-demo-flow-row-wrap {
+    flex-flow: row wrap;
+}</code></pre>
 
                 <p>
                     <strong>Qué observar:</strong> <code>nowrap</code> mantiene una línea y la demostración permite
@@ -1581,31 +1598,29 @@ samp::before {
                     <div class="flex-item">3</div>
                 </div>
 
-                <pre><code>
-                        .flex-demo-justify-start {
-                            justify-content: flex-start;
-                        }
+                <pre><code>.flex-demo-justify-start {
+    justify-content: flex-start;
+}
 
-                        .flex-demo-justify-end {
-                            justify-content: flex-end;
-                        }
+.flex-demo-justify-end {
+    justify-content: flex-end;
+}
 
-                        .flex-demo-justify-center {
-                            justify-content: center;
-                        }
+.flex-demo-justify-center {
+    justify-content: center;
+}
 
-                        .flex-demo-justify-between {
-                            justify-content: space-between;
-                        }
+.flex-demo-justify-between {
+    justify-content: space-between;
+}
 
-                        .flex-demo-justify-around {
-                            justify-content: space-around;
-                        }
+.flex-demo-justify-around {
+    justify-content: space-around;
+}
 
-                        .flex-demo-justify-evenly {
-                            justify-content: space-evenly;
-                        }
-                </code></pre>
+.flex-demo-justify-evenly {
+    justify-content: space-evenly;
+}</code></pre>
 
                 <p>
                     <strong>Qué observar:</strong> <code>flex-start</code>, <code>flex-end</code> y
@@ -1657,7 +1672,7 @@ samp::before {
                 <div class="flex-demo flex-demo-activo flex-demo-alto flex-demo-align-baseline">
                     <div class="flex-item flex-item-texto-pequeno">Texto pequeño</div>
                     <div class="flex-item flex-item-texto-grande">Texto grande</div>
-                    <div class="flex-item">texto normal</div>
+                    <div class="flex-item">Texto normal</div>
                 </div>
                 <pre><code>.flex-demo-align-stretch {
     align-items: stretch;
@@ -1754,7 +1769,7 @@ samp::before {
                     <div class="flex-item flex-item-ancho-fijo">8</div>
                 </div>
 
-                <h3><code>space-betwen</code></h3>
+                <h3><code>space-between</code></h3>
                 <div class="flex-demo flex-demo-activo flex-demo-multilinea flex-demo-content-between">
                     <div class="flex-item flex-item-ancho-fijo">1</div>
                     <div class="flex-item flex-item-ancho-fijo">2</div>
@@ -1788,12 +1803,49 @@ samp::before {
                     <div class="flex-item flex-item-ancho-fijo">6</div>
                     <div class="flex-item flex-item-ancho-fijo">7</div>
                     <div class="flex-item flex-item-ancho-fijo">8</div>
-                    <div class="flex-item flex-item-ancho-fijo">4</div>
-                    <div class="flex-item flex-item-ancho-fijo">5</div>
-                    <div class="flex-item flex-item-ancho-fijo">6</div>
-                    <div class="flex-item flex-item-ancho-fijo">7</div>
-                    <div class="flex-item flex-item-ancho-fijo">8</div>
                 </div>
+
+                <pre><code>.flex-demo-multilinea {
+    flex-wrap: wrap;
+    min-height: 300px;
+    width: 360px;
+}
+
+.flex-demo-content-stretch {
+    align-content: stretch;
+}
+
+.flex-demo-content-start {
+    align-content: flex-start;
+}
+
+.flex-demo-content-end {
+    align-content: flex-end;
+}
+
+.flex-demo-content-center {
+    align-content: center;
+}
+
+.flex-demo-content-between {
+    align-content: space-between;
+}
+
+.flex-demo-content-around {
+    align-content: space-around;
+}
+
+.flex-demo-content-evenly {
+    align-content: space-evenly;
+}</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> <code>stretch</code> expande las líneas para ocupar el espacio
+                    disponible. <code>flex-start</code>, <code>flex-end</code> y <code>center</code> las agrupan. Los
+                    valores <code>space-*</code> reparten el espacio libre entre las líneas, alrededor de ellas o de
+                    forma uniforme. Esta propiedad no reemplaza a <code>align-items</code>: una distribuye líneas y
+                    la otra alinea elementos dentro de cada línea.
+                </p>
             </section>
 
             <section id="order-flexbox" class="paso">

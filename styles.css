@@ -383,6 +383,7 @@ samp::before {
     border: 2px solid #5a54a4;
     box-sizing: border-box;
     margin-bottom: 16px;
+    max-width: 100%;
     overflow-x: auto;
 
     padding: 8px;
@@ -424,9 +425,8 @@ samp::before {
 }
 
 .flex-item-ancho-fijo {
-    width: 72px;
     min-width: 72px;
-
+    width: 72px;
 }
 
 .flex-demo-nowrap {
@@ -437,9 +437,8 @@ samp::before {
     flex-wrap: wrap;
 }
 
-.flex-demo-flow-raw-wrap {
-
-    flex-flow: row-reverse wrap
+.flex-demo-flow-row-wrap {
+    flex-flow: row wrap;
 }
 
 .flex-demo-justify-start {
@@ -486,25 +485,25 @@ samp::before {
     align-items: center;
 }
 
-.flex-item-texto-pequeno {
-    font-size: 12px
-}
-
-.flex-item-texto-grande {
-    font-size: 28px
-}
-
 .flex-demo-align-baseline {
     align-items: baseline;
 }
 
+.flex-item-texto-pequeno {
+    font-size: 12px;
+}
+
+.flex-item-texto-grande {
+    font-size: 28px;
+}
+
+/* align-content necesita varias líneas y espacio libre en el eje transversal. */
 .flex-demo-multilinea {
     flex-wrap: wrap;
     min-height: 300px;
     width: 360px;
 }
 
-/* comportamiento por defecto*/
 .flex-demo-content-stretch {
     align-content: stretch;
 }
