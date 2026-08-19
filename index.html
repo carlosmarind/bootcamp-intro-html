@@ -7,6 +7,9 @@
     <title>HTML y CSS paso a paso</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+
 </head>
 
 <body>
@@ -1941,6 +1944,76 @@ samp::before {
                 </p>
             </section>
         </div>
+
+
+        <div class="bloque-contenido bloque-javascript" role="region" aria-labelledby="titulo-bloque-javascript">
+            <header class="encabezado-bloque encabezado-javascript">
+                <p id="titulo-bloque-javascript" class="titulo-bloque titulo-javascript">Bloque JavaScript</p>
+                <p class="descripcion-bloque">
+                    En este bloque agregarás comportamiento a la página mediante el DOM, eventos, almacenamiento y
+                    solicitudes HTTP.
+                </p>
+            </header>
+
+            <section id="html-dom-javascript" class="paso">
+                <h2>37. HTML, JavaScript y DOM</h2>
+                <p>
+                    HTML define los elementos de la página. El navegador los representa como objetos dentro del DOM,
+                    y JavaScript puede consultar o modificar esos objetos.
+                </p>
+                <p id="js-dom-texto">Este párrafo es un elemento HTML y también un objeto del DOM.</p>
+
+                <pre><code class="codigo-javascript">// Lección 37: HTML, JavaScript y DOM
+const textoDom = document.getElementById('js-dom-texto');
+console.log('Elemento representado en el DOM:', textoDom);</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> <code>document</code> representa la página y
+                    <code>getElementById</code> devuelve el objeto asociado al párrafo. Aquí usamos la consola solo
+                    para inspeccionarlo; los siguientes ejemplos mostrarán sus resultados dentro de la página.
+                </p>
+            </section>
+
+            <section id="seleccion-javascript" class="paso">
+                <h2>39. Seleccionar elementos del DOM</h2>
+                <p>
+                    Para trabajar con un elemento primero debemos seleccionarlo. Podemos buscarlo por su
+                    <code>id</code>, su clase o mediante un selector CSS.
+                </p>
+                <div class="js-demo">
+                    <ul id="js-selector-lista">
+                        <li class="js-selector-item">HTML</li>
+                        <li class="js-selector-item">CSS</li>
+                        <li class="js-selector-item">JavaScript</li>
+                    </ul>
+                    <div class="js-controles">
+                        <button id="js-selector-boton" type="button">Probar selectores</button>
+                    </div>
+                    <p id="js-selector-resultado" class="js-resultado" aria-live="polite">
+                        Aquí aparecerá el resultado de la selección.
+                    </p>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 39: seleccionar elementos del DOM
+const botonSeleccionar = document.getElementById('js-selector-boton');
+const resultadoSeleccion = document.getElementById('js-selector-resultado');
+botonSeleccionar.addEventListener('click', () =&gt; {
+    const porId = document.getElementById('js-selector-lista');
+    const porClase = document.getElementsByClassName('js-selector-item');
+    const primero = document.querySelector('#js-selector-lista li');
+    const todos = document.querySelectorAll('#js-selector-lista li');
+    todos.forEach((elemento) =&gt; elemento.classList.toggle('js-destacado'));
+    resultadoSeleccion.textContent =
+        `ID: ${porId.id}; clase: ${porClase.length}; primero: ${primero.textContent}; todos: ${todos.length}.`;
+});</code></pre>
+
+                <p>
+                    <code>getElementById</code> busca un ID; <code>getElementsByClassName</code> crea una colección
+                    viva; <code>querySelector</code> devuelve la primera coincidencia y
+                    <code>querySelectorAll</code> devuelve todas las coincidencias de un selector CSS.
+                </p>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -1949,7 +2022,6 @@ samp::before {
             Guía acumulativa de HTML y CSS. Más adelante agregaremos JavaScript al mismo proyecto.
         </p>
     </footer>
-
 </body>
 
 </html>
