@@ -1987,7 +1987,8 @@ console.log('Elemento representado en el DOM:', textoDom);</code></pre>
                         <li class="js-selector-item">JavaScript</li>
                     </ul>
                     <div class="js-controles">
-                        <button id="js-selector-boton" type="button">Probar selectores</button>
+                        <button onclick="meApretaron()" id="js-selector-boton" type="button">Probar
+                            selectores</button>
                     </div>
                     <p id="js-selector-resultado" class="js-resultado" aria-live="polite">
                         Aquí aparecerá el resultado de la selección.
@@ -2013,6 +2014,42 @@ botonSeleccionar.addEventListener('click', () =&gt; {
                     <code>querySelectorAll</code> devuelve todas las coincidencias de un selector CSS.
                 </p>
             </section>
+
+            <section id="modificacion-javascript" class="paso">
+                <h2>40. Modificar contenido, atributos y clases</h2>
+                <p>
+                    Una vez seleccionado un elemento, JavaScript puede cambiar su texto, administrar sus atributos o
+                    agregar y quitar clases que CSS usa para modificar su apariencia.
+                </p>
+                <div class="js-demo">
+                    <p id="js-modificar-texto">Este texto todavía no ha sido modificado.</p>
+                    <div class="js-controles">
+                        <button id="js-modificar-boton" type="button">Modificar elemento</button>
+                    </div>
+                    <p id="js-modificar-resultado" class="js-resultado" aria-live="polite">
+                        Aquí aparecerá el resumen del cambio.
+                    </p>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 40: modificar contenido, atributos y clases
+const botonModificar = document.getElementById('js-modificar-boton');
+const textoModificar = document.getElementById('js-modificar-texto');
+const resultadoModificar = document.getElementById('js-modificar-resultado');
+botonModificar.addEventListener('click', () =&gt; {
+    textoModificar.textContent = 'Texto modificado con JavaScript';
+    textoModificar.setAttribute('title', 'Atributo agregado con setAttribute');
+    textoModificar.classList.toggle('js-destacado');
+    resultadoModificar.textContent = 'Se modificaron texto, atributo y clase.';
+});</code></pre>
+
+                <p>
+                    Usamos <code>textContent</code> cuando queremos tratar el contenido como texto. También existe
+                    <code>innerHTML</code>, que interpreta etiquetas HTML; no debemos entregarle contenido de una
+                    persona usuaria o de otra fuente no confiable, porque podría insertar código peligroso.
+                </p>
+            </section>
+
+
         </div>
     </main>
 
