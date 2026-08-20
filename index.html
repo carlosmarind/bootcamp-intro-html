@@ -2076,6 +2076,36 @@ botonModificar.addEventListener('click', () =&gt; {
             </section>
 
 
+            <section id="eventos-javascript" class="paso">
+                <h2>41. Eventos con <code>addEventListener</code></h2>
+                <p>
+                    Los eventos informan que ocurrió una acción, como un clic o el envío de un formulario.
+                    <code>addEventListener</code> conecta una función con el evento que queremos escuchar.
+                </p>
+                <div class="js-demo">
+                    <div class="js-controles">
+                        <button id="js-eventos-boton" type="button">Registrar un clic</button>
+                    </div>
+                    <p id="js-eventos-contador" class="js-resultado" aria-live="polite">Clics registrados: 0</p>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 41: eventos con addEventListener
+const botonContador = document.getElementById('js-eventos-boton');
+const resultadoContador = document.getElementById('js-eventos-contador');
+let cantidadClics = 0;
+botonContador.addEventListener('click', () =&gt; {
+    cantidadClics += 1;
+    resultadoContador.textContent = `Clics registrados: ${cantidadClics}`;
+});</code></pre>
+
+                <h3>Antes y ahora</h3>
+                <p>
+                    Antes era frecuente escribir el evento en un atributo <code>onclick</code> del HTML. Hoy se
+                    prefiere <code>addEventListener</code> en el archivo JavaScript: separa contenido y comportamiento,
+                    permite registrar más de una función y facilita mantener el código.
+                </p>
+            </section>
+
         </div>
     </main>
 

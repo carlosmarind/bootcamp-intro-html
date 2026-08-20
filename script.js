@@ -58,3 +58,15 @@ botonModificar.addEventListener("click", () => {
     textoModificar.classList.toggle('js-destacado');
     resultadoModificar.textContent = "Se modificaron textos, atributos y clases"
 });
+
+
+// ejemplo 41
+const botonContador = document.getElementById('js-eventos-boton');
+const resultadoContador = document.getElementById('js-eventos-contador');
+
+let cantidadClicks = 0;
+botonContador.addEventListener('click', () => {
+    cantidadClicks += 1;
+    resultadoContador.textContent = `Clics registrados: ${cantidadClicks}`;
+
+});
