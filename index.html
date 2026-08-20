@@ -1974,6 +1974,32 @@ console.log('Elemento representado en el DOM:', textoDom);</code></pre>
                 </p>
             </section>
 
+            <section id="carga-javascript" class="paso">
+                <h2>38. Cargar JavaScript con <code>defer</code></h2>
+                <p>
+                    Un archivo externo separa el comportamiento del contenido. El atributo <code>defer</code> permite
+                    descargar el script sin detener el análisis del HTML y ejecutarlo cuando el DOM está disponible.
+                </p>
+                <pre><code>&lt;script src="script.js" defer&gt;&lt;/script&gt;</code></pre>
+
+                <div class="js-demo">
+                    <p id="js-carga-estado" class="js-resultado" aria-live="polite">Esperando a JavaScript…</p>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 38: cargar JavaScript con defer
+const estadoCarga = document.getElementById('js-carga-estado');
+estadoCarga.textContent = 'JavaScript cargado: el DOM está disponible.';
+estadoCarga.classList.add('js-resultado-exito');</code></pre>
+
+                <h3>Antes y ahora</h3>
+                <p>
+                    Antes era habitual colocar el script justo antes de cerrar <code>&lt;body&gt;</code> o esperar el
+                    evento <code>DOMContentLoaded</code>. Esas opciones todavía funcionan. Con un archivo externo y
+                    <code>defer</code>, el navegador puede descargarlo mientras lee el HTML, conserva el orden de los
+                    scripts y los ejecuta cuando el DOM ya está construido.
+                </p>
+            </section>
+
             <section id="seleccion-javascript" class="paso">
                 <h2>39. Seleccionar elementos del DOM</h2>
                 <p>

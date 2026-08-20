@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Ejemplo 39
+// asi se crea un listener
+// elemento.addEventListener("evento", function(){ /* aqui lo que yo quiero hacer*/ });
+// y esta funcion es llamada por el evento del elemento html mediante onclick
+function meApretaron() {
+    alert("alguien me presiono!!")
+}
 
 const botonSeleccionar = document.getElementById("js-selector-boton");
 const resultadoSeleccion = document.getElementById("js-selector-resultado");
@@ -34,12 +40,12 @@ botonSeleccionar.addEventListener("click", () => {
 
 });
 
-// asi se crea un listener
-// elemento.addEventListener("evento", function(){ /* aqui lo que yo quiero hacer*/ });
+// Lección 38: cargar JavaScript con defer
+const estadoCarga = document.getElementById('js-carga-estado');
+estadoCarga.textContent = 'JavaScript cargado: el DOM está disponible.';
+estadoCarga.classList.add('js-resultado-exito');
 
-function meApretaron() {
-    alert("alguien me presiono!!")
-}
+
 
 // Ejemplo 40
 const botonModificar = document.getElementById("js-modificar-boton");
