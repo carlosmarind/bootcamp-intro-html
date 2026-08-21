@@ -126,3 +126,63 @@ botonBorrar.addEventListener('click', () => {
     resultadoStorage.textContent = `El nombre fue eliminado del localStorage`
 });
 
+// Ejemplo 44
+const formularioCrear = document.getElementById('js-crear-formulario')
+const entradaCrear = document.getElementById('js-crear-texto')
+const listaCrear = document.getElementById('js-crear-lista')
+
+formularioCrear.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    const texto = entradaCrear.value.trim()
+    if (!texto) {
+        entradaCrear.focus();
+        return;
+    }
+    const elemento = document.createElement('li');
+    const contenido = document.createElement('span')
+    const botonEliminar = document.createElement('button')
+
+    contenido.textContent = texto;
+    botonEliminar.className = 'js-elemento-eliminar'
+    botonEliminar.type = 'button'
+    botonEliminar.textContent = 'Eliminar'
+    elemento.append(contenido, botonEliminar)
+
+    listaCrear.append(elemento)
+    entradaCrear.value = ''
+    entradaCrear.focus();
+
+})
+
+listaCrear.addEventListener('click', (event) => {
+    console.log(event.target)
+    const botonEliminar = event.target.closest('.js-elemento-eliminar')
+    if (!botonEliminar) return;
+    botonEliminar.closest('li').remove();
+})
+
+// Ejemplo 45
+
+const contenedorTarjetas = document.getElementById('js-tarjetas-contenedor');
+const botonReordenar = document.getElementById('js-tarjeta-reordenar');
+const resultadoTarjetas = document.getElementById('js-tarjeta-resultado');
+let numeroTarjeta = 1;
+contenedorTarjetas.addEventListener('click', (evento) => {
+    const botonClonar = evento.target.closest('.js-tarjeta-clonar');
+    if (!botonClonar) return;
+    const original = botonClonar.closest('.js-tarjeta');
+    const clon = original.cloneNode(true);
+    numeroTarjeta += 1;
+    clon.querySelector('h3').textContent = `Tarjeta ${numeroTarjeta}`;
+    contenedorTarjetas.append(clon);
+    resultadoTarjetas.textContent = `Se creó la tarjeta ${numeroTarjeta}.`;
+});
+botonReordenar.addEventListener('click', () => {
+    const tarjetas = contenedorTarjetas.querySelectorAll('.js-tarjeta');
+    if (tarjetas.length < 2) {
+        resultadoTarjetas.textContent = 'Clona una tarjeta antes de reordenar.';
+        return;
+    }
+    tarjetas[0].before(tarjetas[tarjetas.length - 1]);
+    resultadoTarjetas.textContent = 'La última tarjeta se movió antes de la primera.';
+});
