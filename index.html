@@ -2106,6 +2106,101 @@ botonContador.addEventListener('click', () =&gt; {
                 </p>
             </section>
 
+            <section id="validacion-javascript" class="paso">
+                <h2>42. Validación de formularios</h2>
+                <p>
+                    HTML ofrece reglas básicas como <code>required</code>. JavaScript puede complementar esas reglas,
+                    limpiar los datos y mostrar mensajes específicos antes de procesar el formulario.
+                </p>
+                <div class="js-demo">
+                    <form id="js-validacion-formulario">
+                        <label for="js-validacion-nombre">Nombre</label>
+                        <input id="js-validacion-nombre" name="nombre" type="text">
+                        <div class="js-controles">
+                            <button type="submit">Validar formulario</button>
+                        </div>
+                    </form>
+                    <p id="js-validacion-mensaje" class="js-resultado" aria-live="polite">
+                        Completa el campo y envía el formulario.
+                    </p>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 42: validación de formularios
+const formulario = document.getElementById('js-validacion-formulario');
+const nombreValidacion = document.getElementById('js-validacion-nombre');
+const mensajeValidacion = document.getElementById('js-validacion-mensaje');
+formulario.addEventListener('submit', (evento) =&gt; {
+    evento.preventDefault();
+    const nombreLimpio = nombreValidacion.value.trim();
+    if (nombreLimpio.length &lt; 2) {
+        mensajeValidacion.textContent = 'Escribe al menos 2 caracteres que no sean espacios.';
+        nombreValidacion.focus();
+        return;
+    }
+    mensajeValidacion.textContent = `Formulario válido. Hola, ${nombreLimpio}.`;
+});</code></pre>
+
+                <h3>Antes y ahora</h3>
+                <p>
+                    Un atributo <code>onsubmit</code> también puede ejecutar código, pero mezcla el HTML con el
+                    comportamiento. Con <code>addEventListener</code> mantenemos esa responsabilidad en
+                    <code>script.js</code>. <code>preventDefault</code> detiene el envío real solo en esta demostración
+                    para que podamos examinar el resultado sin recargar la página.
+                </p>
+            </section>
+
+            <section id="almacenamiento-javascript" class="paso">
+                <h2>43. <code>localStorage</code> y <code>sessionStorage</code></h2>
+                <p>
+                    Web Storage permite guardar pares de clave y valor en el navegador. <code>localStorage</code>
+                    conserva los datos y <code>sessionStorage</code> los mantiene durante la sesión de la pestaña.
+                </p>
+                <div class="js-demo">
+                    <label for="js-storage-nombre">Nombre que deseas recordar</label>
+                    <input id="js-storage-nombre" type="text">
+                    <div class="js-controles">
+                        <button id="js-storage-guardar" type="button">Guardar nombre</button>
+                        <button id="js-storage-borrar" type="button">Borrar nombre</button>
+                    </div>
+                    <p id="js-storage-resultado" class="js-resultado" aria-live="polite"></p>
+                    <p id="js-session-resultado" class="js-resultado" aria-live="polite"></p>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 43: localStorage y sessionStorage
+const entradaStorage = document.getElementById('js-storage-nombre');
+const botonGuardar = document.getElementById('js-storage-guardar');
+const botonBorrar = document.getElementById('js-storage-borrar');
+const resultadoStorage = document.getElementById('js-storage-resultado');
+const resultadoSession = document.getElementById('js-session-resultado');
+const recargas = Number(sessionStorage.getItem('curso-js-recargas') ?? '0') + 1;
+sessionStorage.setItem('curso-js-recargas', String(recargas));
+resultadoSession.textContent = `Cargas en esta pestaña: ${recargas}`;
+const nombreGuardado = localStorage.getItem('curso-js-nombre');
+resultadoStorage.textContent = nombreGuardado
+    ? `Nombre guardado: ${nombreGuardado}`
+    : 'No hay un nombre guardado.';
+botonGuardar.addEventListener('click', () =&gt; {
+    const nombre = entradaStorage.value.trim();
+    if (!nombre) {
+        resultadoStorage.textContent = 'Escribe un nombre antes de guardar.';
+        entradaStorage.focus();
+        return;
+    }
+    localStorage.setItem('curso-js-nombre', nombre);
+    resultadoStorage.textContent = `Nombre guardado: ${nombre}`;
+});
+botonBorrar.addEventListener('click', () =&gt; {
+    localStorage.removeItem('curso-js-nombre');
+    entradaStorage.value = '';
+    resultadoStorage.textContent = 'Nombre eliminado de localStorage.';
+});</code></pre>
+
+                <p>
+                    Ambos almacenamientos guardan texto. <code>localStorage</code> continúa disponible al cerrar y
+                    volver a abrir el navegador; <code>sessionStorage</code> pertenece a una pestaña y desaparece al
+                    terminar esa sesión. No deben usarse para contraseñas ni información sensible.
+                </p>
+            </section>
         </div>
     </main>
 

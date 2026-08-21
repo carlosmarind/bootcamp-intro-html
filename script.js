@@ -70,3 +70,50 @@ botonContador.addEventListener('click', () => {
     resultadoContador.textContent = `Clics registrados: ${cantidadClicks}`;
 
 });
+
+//ejemplo 42
+const formulario = document.getElementById('js-validacion-formulario')
+const nombreValidacion = document.getElementById('js-validacion-nombre')
+const mensajeValidacion = document.getElementById('js-validacion-mensaje')
+
+formulario.addEventListener('submit', (evento) => {
+
+    evento.preventDefault();
+    let nombre = nombreValidacion.value.trim();
+
+    if (nombre.length < 2) {
+        mensajeValidacion.textContent = 'Escribe al menos 2 caracteres en el nombre';
+        nombreValidacion.focus();
+        return;
+    }
+    mensajeValidacion.textContent = `El formulario es valido, bienvenido ${nombre}`;
+})
+
+//ejemplo 43
+
+const entradaStorage = document.getElementById('js-storage-nombre')
+const botonGuardar = document.getElementById('js-storage-guardar')
+const botonBorrar = document.getElementById('js-storage-borrar')
+const resultadoStorage = document.getElementById('js-storage-resultado')
+const resultadoSession = document.getElementById('js-session-resultado')
+
+botonGuardar.addEventListener('click', () => {
+
+    const nombre = entradaStorage.value.trim()
+
+    if (!nombre) {
+        resultadoStorage.textContent = "Escribe un nombre antes de guardar"
+        entradaStorage.focus();
+        return;
+    }
+
+    //asi guardo algo en el localstorage (llave,valor), ambos string
+    localStorage.setItem('js-storage-nombre', nombre)
+    resultadoStorage.textContent = `Nombre guardado ${nombre}`
+});
+
+botonBorrar.addEventListener('click', () => {
+    localStorage.removeItem('js-storage-nombre');
+    entradaStorage.value = '';
+    resultadoStorage.textContent = `El nombre fue eliminado del localStorage`
+});
