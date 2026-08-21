@@ -2201,6 +2201,118 @@ botonBorrar.addEventListener('click', () =&gt; {
                     terminar esa sesión. No deben usarse para contraseñas ni información sensible.
                 </p>
             </section>
+
+            <section id="crear-eliminar-javascript" class="paso">
+                <h2>44. Crear y eliminar elementos</h2>
+                <p>
+                    El DOM también permite crear nodos, incorporarlos al documento y eliminarlos sin volver a cargar
+                    la página.
+                </p>
+                <div class="js-demo">
+                    <form id="js-crear-formulario">
+                        <label for="js-crear-texto">Nuevo elemento</label>
+                        <input id="js-crear-texto" type="text" required>
+                        <div class="js-controles">
+                            <button type="submit">Agregar a la lista</button>
+                        </div>
+                    </form>
+                    <ul id="js-crear-lista" class="js-lista" aria-live="polite">
+                        <li>
+                            <span>Elemento inicial</span>
+                            <button class="js-elemento-eliminar" type="button">Eliminar</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 44: crear y eliminar elementos
+const formularioCrear = document.getElementById('js-crear-formulario');
+const entradaCrear = document.getElementById('js-crear-texto');
+const listaCrear = document.getElementById('js-crear-lista');
+formularioCrear.addEventListener('submit', (evento) =&gt; {
+    evento.preventDefault();
+    const texto = entradaCrear.value.trim();
+    if (!texto) {
+        entradaCrear.focus();
+        return;
+    }
+    const elemento = document.createElement('li');
+    const contenido = document.createElement('span');
+    const botonEliminar = document.createElement('button');
+    contenido.textContent = texto;
+    botonEliminar.type = 'button';
+    botonEliminar.className = 'js-elemento-eliminar';
+    botonEliminar.textContent = 'Eliminar';
+    elemento.append(contenido, botonEliminar);
+    listaCrear.append(elemento);
+    entradaCrear.value = '';
+    entradaCrear.focus();
+});
+listaCrear.addEventListener('click', (evento) =&gt; {
+    const botonEliminar = evento.target.closest('.js-elemento-eliminar');
+    if (!botonEliminar) return;
+    botonEliminar.closest('li').remove();
+});</code></pre>
+
+                <p>
+                    El texto se asigna con <code>textContent</code> y no se interpreta como HTML. La lista escucha un
+                    solo evento y busca el botón pulsado con <code>closest</code>; esta delegación también funciona
+                    con los elementos creados después, sin registrar un listener por cada botón.
+                </p>
+            </section>
+
+            <section id="clonar-reordenar-javascript" class="paso">
+                <h2>45. Clonar y reordenar elementos</h2>
+                <p>
+                    Podemos reutilizar una estructura con <code>cloneNode</code> y cambiar la posición de los nodos
+                    existentes con métodos como <code>before</code>.
+                </p>
+                <div class="js-demo">
+                    <div id="js-tarjetas-contenedor" class="js-tarjetas">
+                        <article class="js-tarjeta">
+                            <h3>Tarjeta 1</h3>
+                            <p>Esta estructura se puede clonar.</p>
+                            <button class="js-tarjeta-clonar" type="button">Clonar tarjeta</button>
+                        </article>
+                    </div>
+                    <div class="js-controles">
+                        <button id="js-tarjeta-reordenar" type="button">Mover la última al inicio</button>
+                    </div>
+                    <p id="js-tarjeta-resultado" class="js-resultado" aria-live="polite">
+                        Primero clona una tarjeta y luego cambia su orden.
+                    </p>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 45: clonar y reordenar elementos
+const contenedorTarjetas = document.getElementById('js-tarjetas-contenedor');
+const botonReordenar = document.getElementById('js-tarjeta-reordenar');
+const resultadoTarjetas = document.getElementById('js-tarjeta-resultado');
+let numeroTarjeta = 1;
+contenedorTarjetas.addEventListener('click', (evento) =&gt; {
+    const botonClonar = evento.target.closest('.js-tarjeta-clonar');
+    if (!botonClonar) return;
+    const original = botonClonar.closest('.js-tarjeta');
+    const clon = original.cloneNode(true);
+    numeroTarjeta += 1;
+    clon.querySelector('h3').textContent = `Tarjeta ${numeroTarjeta}`;
+    contenedorTarjetas.append(clon);
+    resultadoTarjetas.textContent = `Se creó la tarjeta ${numeroTarjeta}.`;
+});
+botonReordenar.addEventListener('click', () =&gt; {
+    const tarjetas = contenedorTarjetas.querySelectorAll('.js-tarjeta');
+    if (tarjetas.length &lt; 2) {
+        resultadoTarjetas.textContent = 'Clona una tarjeta antes de reordenar.';
+        return;
+    }
+    tarjetas[0].before(tarjetas[tarjetas.length - 1]);
+    resultadoTarjetas.textContent = 'La última tarjeta se movió antes de la primera.';
+});</code></pre>
+
+                <p>
+                    <code>cloneNode(true)</code> copia el elemento y todos sus descendientes, pero no copia listeners
+                    agregados con JavaScript. El clon responde porque el listener está en el contenedor y usa
+                    delegación de eventos. La tarjeta no contiene IDs internos, así evitamos duplicar identificadores.
+                </p>
+            </section>
         </div>
     </main>
 

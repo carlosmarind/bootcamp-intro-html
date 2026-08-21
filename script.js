@@ -97,6 +97,14 @@ const botonBorrar = document.getElementById('js-storage-borrar')
 const resultadoStorage = document.getElementById('js-storage-resultado')
 const resultadoSession = document.getElementById('js-session-resultado')
 
+const recargas = Number(sessionStorage.getItem('curso-js-recargas') ?? '0') + 1;
+sessionStorage.setItem('curso-js-recargas', String(recargas));
+resultadoSession.textContent = `Cargas en esta pestaña: ${recargas}`;
+const nombreGuardado = localStorage.getItem('curso-js-nombre');
+resultadoStorage.textContent = nombreGuardado
+    ? `Nombre guardado: ${nombreGuardado}`
+    : 'No hay un nombre guardado.';
+
 botonGuardar.addEventListener('click', () => {
 
     const nombre = entradaStorage.value.trim()
@@ -117,3 +125,4 @@ botonBorrar.addEventListener('click', () => {
     entradaStorage.value = '';
     resultadoStorage.textContent = `El nombre fue eliminado del localStorage`
 });
+
