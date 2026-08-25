@@ -656,3 +656,84 @@ samp::before {
 .js-tarjeta h3 {
     margin-top: 0;
 }
+
+.evento-demo {
+    background-color: #e8edf2;
+    border: 2px solid #28734f;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    max-width: 100%;
+    padding: 12px;
+    width: 560px;
+}
+
+.evento-controles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.evento-resultado {
+    background-color: white;
+    border: 2px solid #8796a5;
+    box-sizing: border-box;
+    min-height: 48px;
+    padding: 10px;
+}
+
+.evento-demo form {
+    display: grid;
+    gap: 8px;
+    max-width: 100%;
+}
+
+.evento-demo label {
+    font-weight: bold;
+}
+
+.evento-demo input {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 38px;
+    padding: 8px;
+    width: 100%;
+}
+
+.evento-demo button {
+    cursor: pointer;
+    justify-self: start;
+    padding: 8px 12px;
+}
+
+.evento-demo .evento-resultado+.evento-resultado {
+    margin-top: 8px;
+}
+
+.evento-codigo-historico {
+    background-color: #fff1b8;
+    border-left: 4px solid #9a4b00;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 12px;
+}
+
+.evento-mouse-zona,
+.evento-propagacion-caja {
+    background-color: #e5f6df;
+    border: 2px solid #28734f;
+    box-sizing: border-box;
+    padding: 16px;
+}
+
+.evento-mouse-hijo {
+    background-color: #fff1b8;
+    border: 2px solid #9a4b00;
+    margin-top: 12px;
+    padding: 12px;
+}
+
+.evento-registro {
+    font-family: monospace;
+    overflow-wrap: anywhere;
+}
