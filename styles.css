@@ -567,10 +567,6 @@ samp::before {
     flex-grow: 2;
 }
 
-.js-destacado {
-    color: red;
-}
-
 .bloque-javascript {
     background-color: #f2f7ed;
     border-left-color: #28734f;

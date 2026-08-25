@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML y CSS paso a paso</title>
+    <title>HTML, CSS y JavaScript paso a paso</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
@@ -16,7 +16,7 @@
 
     <header id="inicio">
 
-        <h1>HTML y CSS paso a paso</h1>
+        <h1>HTML, CSS y JavaScript paso a paso</h1>
         <p>
             Primero usamos HTML para organizar el contenido. Ahora agregaremos CSS para modificar su apariencia.
             Más adelante utilizaremos JavaScript para incorporar comportamiento.
@@ -70,6 +70,18 @@
                 <li><a href="#align-content-flexbox">Distribución de varias líneas</a></li>
                 <li><a href="#order-flexbox">Orden visual de los elementos</a></li>
                 <li><a href="#flex-grow-flexbox">Crecimiento de los elementos</a></li>
+            </ol>
+            <p><strong>Contenido JavaScript</strong></p>
+            <ol start="37">
+                <li><a href="#html-dom-javascript">HTML, JavaScript y DOM</a></li>
+                <li><a href="#carga-javascript">Cargar JavaScript con defer</a></li>
+                <li><a href="#seleccion-javascript">Seleccionar elementos del DOM</a></li>
+                <li><a href="#modificacion-javascript">Modificar contenido, atributos y clases</a></li>
+                <li><a href="#eventos-javascript">Eventos con addEventListener</a></li>
+                <li><a href="#validacion-javascript">Validación de formularios</a></li>
+                <li><a href="#almacenamiento-javascript">localStorage y sessionStorage</a></li>
+                <li><a href="#crear-eliminar-javascript">Crear y eliminar elementos</a></li>
+                <li><a href="#clonar-reordenar-javascript">Clonar y reordenar elementos</a></li>
             </ol>
         </nav>
 
@@ -2013,8 +2025,7 @@ estadoCarga.classList.add('js-resultado-exito');</code></pre>
                         <li class="js-selector-item">JavaScript</li>
                     </ul>
                     <div class="js-controles">
-                        <button onclick="meApretaron()" id="js-selector-boton" type="button">Probar
-                            selectores</button>
+                        <button id="js-selector-boton" type="button">Probar selectores</button>
                     </div>
                     <p id="js-selector-resultado" class="js-resultado" aria-live="polite">
                         Aquí aparecerá el resultado de la selección.
@@ -2115,7 +2126,7 @@ botonContador.addEventListener('click', () =&gt; {
                 <div class="js-demo">
                     <form id="js-validacion-formulario">
                         <label for="js-validacion-nombre">Nombre</label>
-                        <input id="js-validacion-nombre" name="nombre" type="text">
+                        <input id="js-validacion-nombre" name="nombre" type="text" required minlength="2">
                         <div class="js-controles">
                             <button type="submit">Validar formulario</button>
                         </div>
@@ -2323,7 +2334,7 @@ botonReordenar.addEventListener('click', () =&gt; {
     <footer>
         <p>Fin. <a href="#inicio">Volver al inicio</a>.</p>
         <p>
-            Guía acumulativa de HTML y CSS. Más adelante agregaremos JavaScript al mismo proyecto.
+            Guía acumulativa de HTML, CSS y JavaScript.
         </p>
     </footer>
 </body>
