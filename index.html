@@ -2328,6 +2328,41 @@ botonReordenar.addEventListener('click', () =&gt; {
                     delegación de eventos. La tarjeta no contiene IDs internos, así evitamos duplicar identificadores.
                 </p>
             </section>
+
+            <section id="concepto-eventos" class="paso">
+                <h2>46. Qué es un evento y familias de eventos</h2>
+                <p>
+                    Un evento es una señal del navegador que indica que ocurrió algo: la página terminó de cargar, una
+                    persona escribió, pulsó una tecla o movió el puntero. En esta unidad veremos eventos de carga,
+                    ventana, foco, formularios, teclado, clic y mouse; también existen familias como drag, clipboard y
+                    media, que reconoceremos sin crear una demostración independiente.
+                </p>
+                <p>
+                    Cada ejemplo conectará una acción observable con una función de JavaScript para distinguir el
+                    evento que sucede de la respuesta que programamos para él.
+                </p>
+                <div class="evento-demo">
+                    <div class="evento-controles">
+                        <button id="evento-objeto-boton" type="button">Generar evento click</button>
+                    </div>
+                    <p id="evento-objeto-resultado" class="evento-resultado" aria-live="polite">
+                        Aquí aparecerán el tipo y el origen del evento.
+                    </p>
+                </div>
+
+                <pre><code class="codigo-javascript">// Lección 46: qué es un evento
+const botonObjetoEvento = document.getElementById('evento-objeto-boton');
+const resultadoObjetoEvento = document.getElementById('evento-objeto-resultado');
+botonObjetoEvento.addEventListener('click', (event) =&gt; {
+    resultadoObjetoEvento.textContent =
+        `Tipo: ${event.type}; origen: ${event.target.id}.`;
+});</code></pre>
+
+                <p>
+                    <strong>Qué observar:</strong> al hacer clic, el resultado muestra el tipo de evento y el ID del
+                    elemento donde se originó.
+                </p>
+            </section>
         </div>
     </main>
 

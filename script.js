@@ -137,3 +137,16 @@ botonReordenar.addEventListener('click', () => {
     tarjetas[0].before(tarjetas[tarjetas.length - 1]);
     resultadoTarjetas.textContent = 'La última tarjeta se movió antes de la primera.';
 });
+
+
+// Ejemplo 46
+const botonObjetoEvento = document.getElementById('evento-objeto-boton');
+const resultadoObjetoEvento = document.getElementById('evento-objeto-resultado');
+
+botonObjetoEvento.addEventListener('click', (event) => {
+
+    // aca nos hacemos cargo (handle) del evento
+    console.log(event)
+    resultadoObjetoEvento.textContent = `Tipo ${event.type}; origen: ${event.target.id}`
+
+});
